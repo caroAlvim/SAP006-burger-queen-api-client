@@ -2,26 +2,23 @@
 import './index.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../components/Header/header';
-import Item from '../../components/Item/itens';
-import Button from '../../components/Button/button';
+import Header from '../../../components/Header/header';
+import Item from '../../../components/Item/itens';
+import Button from '../../../components/Button/button';
 import { useHistory } from 'react-router-dom';
 
-
-function Pedidos() {
+function AllDay() {
   useEffect(() => {
     getAllProducts();
   }, []);
+
   const { mesa } = useParams();
   const history = useHistory();
+ 
 
   function somaFinal(array) {
     return array.reduce((total, item) => total + (item.qtd * item.price), 0);
   }
-
-  const allDay = () => {
-    history.push('/allday');
-  };
 
   const [menu, setMenu] = useState('');
   const [resumopedido, setResumoPedido] = useState([]);
@@ -40,7 +37,7 @@ function Pedidos() {
     })
       .then((response) => response.json())
       .then((json) => {
-        const breakfast = json.filter((item) => item.type === 'breakfast');
+        const breakfast = json.filter((item) => item.type === 'all-day');
         setMenu(breakfast);
       });
   };
@@ -49,7 +46,10 @@ function Pedidos() {
     <main className="all-container">
       <Header />
       <div>
-   
+        <Button
+        buttonOnClick={(e) =>  
+             history.push('/')}
+        ></Button>
       </div>
       <div className="menu-um">
         <div className="breakfast-menu">
@@ -62,9 +62,10 @@ function Pedidos() {
               ImgSrc={item.image}
               itemPrice={item.price}
               qnt={item.qnt}
+              itemFlavor={item.flavor}
               itemNameKey={item.id}
               divOnClick={() => {
-                if (!resumopedido.some((item) => item.name === menu[index].name)) {
+                if (!resumopedido.some((item) => item.id === menu[index].id)) {
                   setResumoPedido([...resumopedido, {
                     id: menu[index].id,
                     name: menu[index].name,
@@ -73,7 +74,7 @@ function Pedidos() {
                   }]);
                 } else {
                   resumopedido.map((item, i) => {
-                    if (item.name === menu[index].name) {
+                    if (item.id === menu[index].id) {
                       resumopedido[i].qnt++
                     + setResumoPedido([...resumopedido]);
                     }
@@ -86,9 +87,6 @@ function Pedidos() {
           ))}
 
         </div>
-        <Button
-        buttonOnClick={(e) => allDay(e)}
-        >CLIQUEAQUI</Button>
 
       </div>
       <div className="finish-menu">
@@ -124,10 +122,10 @@ function Pedidos() {
                     type="button"
                     value="-"
                     onClick={() => {
-                      if (item.qtd > 1 && item.name === resumopedido[index].name) {
+                      if (item.qtd > 1 && item.id === resumopedido[index].id) {
                         resumopedido[index].qtd--;
                         setResumoPedido([...resumopedido]);
-                      } else if (item.name === resumopedido[index].name && item.atd === 1) {
+                      } else if (item.id === resumopedido[index].id && item.qtd === 1) {
                         resumopedido.splice(index, 1);
                         setResumoPedido([...resumopedido]);
                       }
@@ -140,7 +138,7 @@ function Pedidos() {
                     type="button"
                     value="+"
                     onClick={() => {
-                      if (item.name === resumopedido[index].name) {
+                      if (item.id === resumopedido[index].id) {
                         resumopedido[index].qtd++;
                         setResumoPedido([...resumopedido]);
                       }
@@ -175,7 +173,7 @@ function Pedidos() {
                   },
                   body: JSON.stringify({
                     client: 'ana',
-                    table: mesa,
+                    table: "1",
                     products:
                   resumopedido.map((item) => (
                     {
@@ -214,4 +212,4 @@ function Pedidos() {
   );
 }
 
-export default Pedidos;
+export default AllDay;
