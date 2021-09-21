@@ -6,6 +6,7 @@ import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
 import { useHistory } from 'react-router-dom';
+import Panel from '../../../components/Menu/menu';
 
 function AllDay() {
 useEffect(()=> {
@@ -30,11 +31,20 @@ const token = localStorage.getItem('token')
  }
  return(
    <>
+   <Panel>
+     <div>asdasd</div>
+     <h1>asdasdasd</h1>
+    <Button> Hamburger Simples</Button>
+     <Button> Bebidas</Button>
+     <Button> Hamburger Duplo</Button>
+
+   </Panel>
    <div className="menu-allday">
      <h1>oioioi</h1>
      <Button> Hamburger Simples</Button>
      <Button> Bebidas</Button>
      <Button> Hamburger Duplo</Button>
+
      
    </div>
    
