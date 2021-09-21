@@ -2,9 +2,9 @@
 import './index.css';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../components/Header/header';
-import Item from '../../components/Item/itens';
-import Button from '../../components/Button/button';
+import Header from '../../../components/Header/header';
+import Item from '../../../components/Item/itens';
+import Button from '../../../components/Button/button';
 import { useHistory } from 'react-router-dom';
 
 
