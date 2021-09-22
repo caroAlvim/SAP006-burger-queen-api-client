@@ -1,5 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import Login from './pages/Login/login';
 import Register from './pages/Register/register';
 import Saloon from './pages/Saloon/saloon';
@@ -7,6 +11,7 @@ import Page404 from './pages/Page404/index';
 import Pedidos from './pages/Pedidos/index';
 import Kitchen from './pages/Kitchen/kitchen';
 import GlobalStyle from './components/GlobalStyle';
+import AllDay from './pages/Pedidos/allDay/index';
 
 import PrivateRoute from './service/PrivateRoute';
 
@@ -38,6 +43,10 @@ function Routes() {
         <PrivateRoute exact path="/kitchen">
           <Kitchen />
         </PrivateRoute>
+
+        <Route exact path="/allday">
+          <AllDay />
+        </Route>
 
         <Route>
           <Page404 />

@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 
 function Mesas({ mesa }) {
   const history = useHistory();
-
   return (
 
     <label htmlFor="button-table" type="button" key={mesa} className="buttons-mesas">
@@ -30,5 +29,4 @@ function Mesas({ mesa }) {
 
   );
 }
-
 export default Mesas;

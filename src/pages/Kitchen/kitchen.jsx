@@ -1,28 +1,44 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button/button';
-import window from '../../img/window.png';
 import './kitchen.css';
+import Header from '../../components/HeaderKitchen/headersKitchen';
+import OrdersArea from '../../components/OrdersArea/ordersArea';
+import OrdersKitchen from '../../components/OrdersKitchen/ordersKitchen';
 
 function Kitchen() {
-  const historylogOut = useHistory();
+  // useEffect(() => {
+  //   getAllOrders();
+  // }, []);
 
-  const logOut = () => {
-    localStorage.removeItem('token');
-    historylogOut.push('/');
-  };
+  // const [orders, setOrders] = useState(1);
+  // const token = localStorage.getItem('token');
+  // const getAllOrders = () => {
+  //   fetch('https://lab-api-bq.herokuapp.com/orders', {
+  //     headers: {
+  //       accept: 'application/json',
+  //       Authorization: `${token}`,
+
+  //     },
+
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       const orders = json.filter((item) => item.type === 'all-day');
+  //       setOrders(orders);
+  //     });
+  // };
 
   return (
-    <div className="container-kitchen">
-      <h1> Cozinha Krusty Krab </h1>
-
-      <div className="btn-div">
-        <Button buttonOnClick={logOut} buttonClass="logOut-btn">
-          <img className="window-img" src={window} alt="Janela de navio" />
-          <p className="txt-logOut">Sair</p>
-        </Button>
+    <>
+      <Header />
+      <div className="container-kitchen">
+        <h1>Pedidos</h1>
+        <OrdersArea>
+          <OrdersKitchen />
+        </OrdersArea>
       </div>
-    </div>
+
+    </>
+
   );
 }
 

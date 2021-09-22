@@ -1,17 +1,29 @@
 import React from 'react';
+import './ordersKitchen.css';
 
-// eslint-disable-next-line no-empty-pattern
 function OrdersKitchen({
-//   name,
-//   flavor,
-//   complement,
-//   qtd,
+  id,
+  client,
+  table,
+  name,
+  flavor,
+  complement,
+  qtd,
 }) {
   return (
     <>
-      <div>
-        <h2> Pedido </h2>
-      </div>
+      <section className="order-container" key={id}>
+        <div className="header-orders">
+          <h2> Mesa: {table}</h2>
+          <h2> cliente: {client}</h2>
+        </div>
+        <div className="list-orders">
+          <p>{name}</p>
+          <p>{flavor}</p>
+          <p>{complement}</p>
+          <p>{qtd}</p>
+        </div>
+      </section>
     </>
   );
 }
