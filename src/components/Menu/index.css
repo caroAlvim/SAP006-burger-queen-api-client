@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Bob;
+    src: url('../../fonts/SpongebobFontCondensedRegular-3zZEy.otf');
+    
+  }
+:root {
+    --bg--button--color:#F47C6C;
+  
+    --bg--menu--yellow--color: #FFE98D; 
+  };
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.all-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.menu{
+    display: flex;
+    background-color: var(--bg--menu--yellow--color);
+    width: 420px;
+    height: 444px;
+    margin-top: 250px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgb(160, 159, 159);
+
+}
