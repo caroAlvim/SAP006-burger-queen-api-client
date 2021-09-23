@@ -12,6 +12,9 @@ flex-direction: row-reverse;
 justify-content: center;
 align-items: center;
 font-family: Bob;
+height: 25vh;
+}
+
 `;
 
 function Headerkitchen() {

@@ -18,6 +18,9 @@
 
 .list-orders {
     display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
     font-family: 'Montserrat', sans-serif; 
 }
