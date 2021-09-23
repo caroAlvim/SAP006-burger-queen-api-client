@@ -89,6 +89,19 @@ height: 100px;
     cursor: pointer;
 
 }
+
+.menu-button {
+    background: var(--bg--button--color);
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+    margin-top: 30px;
+    margin-left: 50px;
+    cursor: pointer;
+
+}
 .qtd-button{
     border-radius: 50%;
     width: 20px;

@@ -31,5 +31,6 @@
     margin-top: 250px;
     border-radius: 25px;
     box-shadow: 5px 5px 5px rgb(160, 159, 159);
+    overflow: auto;
 
 }
