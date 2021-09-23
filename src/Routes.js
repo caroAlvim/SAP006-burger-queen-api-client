@@ -12,6 +12,7 @@ import Pedidos from './pages/Pedidos/breakfast/index';
 import Kitchen from './pages/Kitchen/kitchen';
 import GlobalStyle from './components/GlobalStyle';
 import AllDay from './pages/Pedidos/allDay/index';
+import Burguer from './pages/Pedidos/allDay/burguer';
 
 import PrivateRoute from './service/PrivateRoute';
 
@@ -44,8 +45,12 @@ function Routes() {
           <Kitchen />
         </PrivateRoute>
 
-        <Route exact path="/allday">
+        <Route exact path="/allday/">
           <AllDay />
+        </Route>
+
+        <Route exact path="/simpleBurguers/">
+          <Burguer />
         </Route>
 
         <Route>

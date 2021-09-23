@@ -15,6 +15,7 @@ function Item({
   itemNameKey,
   itemPriceKey,
   itemFlavor,
+  itemComplement,
   ImgSrc,
 }) {
   return (
@@ -27,6 +28,7 @@ function Item({
         <div className="divButton">
           <h1 className="divPrice" key={itemPriceKey}> {divId} R${itemPrice},00</h1>
           <h1 className="divFlavor"> {itemFlavor}</h1>
+          <h1 className="divComplement"> {itemComplement}</h1>
         </div>
         <Button buttonOnClick={divOnClick} buttonClass="add-button"> ADD </Button>
       </div>

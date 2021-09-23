@@ -48,10 +48,22 @@ function Pedidos() {
   return (
     <main className="all-container">
       <Header />
-      <div>
-   
-      </div>
+     
       <div className="menu-um">
+        <section>
+        <Button
+      buttonClass="menu-button"
+        buttonOnClick={(e) => allDay(e)}
+        >Café da Manhã
+        </Button>
+        <Button
+      buttonClass="menu-button"
+        buttonOnClick={(e) => allDay(e)}
+        >All Day
+        </Button>
+
+        </section>
+     
         <div className="breakfast-menu">
           {menu && menu.map((item, index) => (
             <Item
@@ -86,10 +98,6 @@ function Pedidos() {
           ))}
 
         </div>
-        <Button
-        buttonOnClick={(e) => allDay(e)}
-        >CLIQUEAQUI</Button>
-
       </div>
       <div className="finish-menu">
 

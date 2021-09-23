@@ -12,7 +12,11 @@ function AllDay() {
 useEffect(()=> {
   getAllDay();
 }, []);
-
+const history = useHistory();
+const {mesa} = useParams();
+const simpleBurguerRouter = () => {
+history.push('/Simpleburguers')
+}
 const token = localStorage.getItem('token')
  const getAllDay = () => {
    fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -27,26 +31,26 @@ const token = localStorage.getItem('token')
      console.log(simpleburguer)
      const doubleburguer = json.filter((item) => item.name === 'Hambúrguer duplo')
      console.log(doubleburguer)
+     const extras = json.filter((item) => item.name === 'Batata frita')
    })
  }
  return(
    <>
    <Panel>
-     <div>asdasd</div>
-     <h1>asdasdasd</h1>
-    <Button> Hamburger Simples</Button>
-     <Button> Bebidas</Button>
-     <Button> Hamburger Duplo</Button>
+    <Button buttonClass="menu-choice-button"
+    buttonOnClick={(e) => simpleBurguerRouter(e)
+    }
+    
+    > Hamburger Simples
+    
+    </Button>
+
+    
+     <Button buttonClass="menu-choice-button"> Bebidas</Button>
+     <Button buttonClass="menu-choice-button"> Hamburger Duplo</Button>
+     <Button buttonClass="menu-choice-button"> Hamburger Duplo</Button>
 
    </Panel>
-   <div className="menu-allday">
-     <h1>oioioi</h1>
-     <Button> Hamburger Simples</Button>
-     <Button> Bebidas</Button>
-     <Button> Hamburger Duplo</Button>
-
-     
-   </div>
    
     <div className="resumo-pedido">
        <h1>resumo</h1>
