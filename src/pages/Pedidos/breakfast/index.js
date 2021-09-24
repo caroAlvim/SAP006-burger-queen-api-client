@@ -24,8 +24,6 @@ function Pedidos() {
   const [menus, setMenus] = useState(true);
   const [menuAlmoco, setMenuAlmoco] = useState([]);
   const [menuCafe, setMenuCafe] = useState([]);
-  const clientNameInput = document.querySelector('.nome-cliente').value;
-
   const [resumopedido, setResumoPedido] = useState([]);
   const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
@@ -243,6 +241,7 @@ function Pedidos() {
               if (fazerPedido.client !== '') {
                 const products = resumopedido.map((item) => ({ id: item.id, qtd: item.qtd }));
                 fazerPedido.products = products;
+                const clientNameInput = document.querySelector('.nome-cliente').value;
 
                 const requestOptions = {
                   method: 'POST',
