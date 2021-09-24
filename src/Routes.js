@@ -11,8 +11,6 @@ import Page404 from './pages/Page404/index';
 import Pedidos from './pages/Pedidos/breakfast/index';
 import Kitchen from './pages/Kitchen/kitchen';
 import GlobalStyle from './components/GlobalStyle';
-import AllDay from './pages/Pedidos/allDay/index';
-import Burguer from './pages/Pedidos/allDay/burguer';
 
 import PrivateRoute from './service/PrivateRoute';
 
@@ -44,14 +42,6 @@ function Routes() {
         <PrivateRoute exact path="/kitchen">
           <Kitchen />
         </PrivateRoute>
-
-        <Route exact path="/allday/">
-          <AllDay />
-        </Route>
-
-        <Route exact path="/simpleBurguers/">
-          <Burguer />
-        </Route>
 
         <Route>
           <Page404 />
