@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -18,26 +17,6 @@ import Burguer from './pages/Pedidos/allDay/burguer';
 import PrivateRoute from './service/PrivateRoute';
 
 function Routes() {
-  /* const isAuth = () => {
-    const user = localStorage.getItem('token');
-    if (!user) return false;
-
-    return true;
-  };
-
-  /*
-  const PrivateRoutes = ({ component: Component, ...rest }) => (
-
-    <Route
-      {...rest}
-      render={(props) => (
-        isAuth()
-          ? <Component {...props} />
-          : <Redirect to="/" />
-      )}
-    />
-  );
-*/
   return (
     <Router>
       <GlobalStyle />

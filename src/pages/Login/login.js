@@ -4,6 +4,7 @@ import Button from '../../components/Button/button';
 import InputTxt from '../../components/Input/inputTxt';
 import './login.css';
 import Logo from '../../img/logo-img.png';
+import Flower1 from '../../img/1.png';
 
 function Login() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -59,7 +60,6 @@ function Login() {
       <div className="logo-login">
         <img className="logo-img-login" src={Logo} alt="Logo The Krusty Krab" />
       </div>
-
       <form className="login-form">
         <h1 className="txt-login">login</h1>
         <InputTxt
@@ -105,6 +105,9 @@ function Login() {
         </div>
 
       </form>
+      <div className="flower-div">
+        <img className="flower1-img" src={Flower1} alt="ocean-flower" />
+      </div>
     </div>
   );
 }

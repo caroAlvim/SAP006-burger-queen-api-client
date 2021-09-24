@@ -1,28 +1,62 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button/button';
-import window from '../../img/window.png';
+import React, { useState, useEffect } from 'react';
 import './kitchen.css';
+import Header from '../../components/HeaderKitchen/headersKitchen';
+import OrdersArea from '../../components/OrdersArea/ordersArea';
+import OrdersKitchen from '../../components/OrdersKitchen/ordersKitchen';
+import OrdersProducts from '../../components/OrdersProducts/ordersProducts';
 
 function Kitchen() {
-  const historylogOut = useHistory();
+  const [orders, setOrders] = useState([]);
 
-  const logOut = () => {
-    localStorage.removeItem('token');
-    historylogOut.push('/');
+  const token = localStorage.getItem('token');
+  const requestAllOrders = () => {
+    fetch('https://lab-api-bq.herokuapp.com/orders', {
+      headers: {
+        accept: 'application/json',
+        Authorization: `${token}`,
+
+      },
+
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        const allOrders = json.filter((item) => item.status === 'processing' || item.status === 'pending');
+        setOrders(allOrders);
+      });
   };
 
-  return (
-    <div className="container-kitchen">
-      <h1> Cozinha Krusty Krab </h1>
+  useEffect(() => {
+    requestAllOrders();
+  }, []);
 
-      <div className="btn-div">
-        <Button buttonOnClick={logOut} buttonClass="logOut-btn">
-          <img className="window-img" src={window} alt="Janela de navio" />
-          <p className="txt-logOut">Sair</p>
-        </Button>
+  return (
+    <>
+      <Header />
+      <div className="container-kitchen">
+        <h1>Pedidos</h1>
+        <OrdersArea>
+          {orders.map((item) => (
+            <OrdersKitchen
+              key={item.id}
+              table={item.table}
+              client_name={item.client_name}
+            >
+              {item.Products.map((prod) => (
+                <OrdersProducts
+                  name={prod.name}
+                  flavour={prod.flavour}
+                  complement={prod.complement}
+                  qtd={prod.qtd}
+                />
+              ))}
+            </OrdersKitchen>
+          ))}
+        </OrdersArea>
+
       </div>
-    </div>
+
+    </>
+
   );
 }
 

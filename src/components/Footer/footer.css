@@ -1,0 +1,12 @@
+.footer {
+    display: block;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 25px;
+    height: 10vh;
+}
+
+.burguer-img {
+    padding: 1rem;
+    width: 2rem;
+}
