@@ -24,13 +24,12 @@ function Pedidos() {
   const [menus, setMenus] = useState(true);
   const [menuAlmoco, setMenuAlmoco] = useState([]);
   const [menuCafe, setMenuCafe] = useState([]);
-  const clientNameInput = document.querySelector(".nome-cliente").value;
+  const clientNameInput = document.querySelector('.nome-cliente').value;
 
   const [resumopedido, setResumoPedido] = useState([]);
-  const [fazerPedido, setFazerPedido] = useState({ "client": "", "table": mesa, "products": [] });
+  const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
-
 
   const token = localStorage.getItem('token');
   const getAllProducts = () => {
@@ -114,45 +113,61 @@ function Pedidos() {
 
         ) : (
           <Panel>
-          <div className="breakfast-menu">
-            {menuAlmoco && menuAlmoco.map((item, index) => (
-              <Item
-                divClassName="container-food"
-                divKey={Math.random()}
-                itemName={item.name}
-                divId={item.id}
-                ImgSrc={item.image}
-                itemPrice={item.price}
-                qnt={item.qnt}
-                itemNameKey={item.id}
-                divOnClick={() => {
-                  if (!resumopedido.some((item) => item.name === menuAlmoco[index].name)) {
-                    setResumoPedido([...resumopedido, {
-                      id: menuAlmoco[index].id,
-                      name: menuAlmoco[index].name,
-                      price: menuAlmoco[index].price,
-                      qtd: 1,
-                    }]);
-                  } else {
-                    resumopedido.map((item, i) => {
-                      if (item.name === menuAlmoco[index].name) {
-                        resumopedido[i].qnt++
-                + setResumoPedido([...resumopedido]);
-                      }
-                    });
-                  }
+            <section>
+              <Button
+                buttonClass="menu-button"
+                buttonOnClick={() => {
+                  setMenus(true);
                 }}
-              />
+              >Café da Manhã
+              </Button>
+              <Button
 
-            ))}
+                buttonClass="menu-button"
+                buttonOnClick={() => {
+                  setMenus(false);
+                }}
+              >All Day
+              </Button>
 
-          </div>
+            </section>
+            <div className="breakfast-menu">
+              {menuAlmoco && menuAlmoco.map((item, index) => (
+                <Item
+                  divClassName="container-food"
+                  divKey={Math.random()}
+                  itemName={item.name}
+                  divId={item.id}
+                  ImgSrc={item.image}
+                  itemPrice={item.price}
+                  qnt={item.qnt}
+                  itemNameKey={item.id}
+                  divOnClick={() => {
+                    if (!resumopedido.some((item) => item.name === menuAlmoco[index].name)) {
+                      setResumoPedido([...resumopedido, {
+                        id: menuAlmoco[index].id,
+                        name: menuAlmoco[index].name,
+                        price: menuAlmoco[index].price,
+                        qtd: 1,
+                      }]);
+                    } else {
+                      resumopedido.map((item, i) => {
+                        if (item.name === menuAlmoco[index].name) {
+                          resumopedido[i].qnt++
+                + setResumoPedido([...resumopedido]);
+                        }
+                      });
+                    }
+                  }}
+                />
+
+              ))}
+
+            </div>
           </Panel>
 
         )}
-        
 
-      
       </div>
       <div className="finish-menu">
 
@@ -162,7 +177,7 @@ function Pedidos() {
           className="nome-cliente"
           type="text"
           placeholder="Digite o nome do cliente"
-          onChange={(event) => setFazerPedido({ ...fazerPedido, "client": event.target.value})}
+          onChange={(event) => setFazerPedido({ ...fazerPedido, client: event.target.value })}
         />
         <section>
           <label className="item">Item</label>
@@ -237,9 +252,9 @@ function Pedidos() {
                     Authorization: `${token}`,
                   },
                   body: JSON.stringify({
-                    "client": clientNameInput,
-                    "table": mesa,
-                    "products":
+                    client: clientNameInput,
+                    table: mesa,
+                    products:
                   resumopedido.map((item) => (
                     {
                       id: Number(item.id),
@@ -255,7 +270,7 @@ function Pedidos() {
                     if (data.id !== undefined) {
                       setErroMessage('Pedido enviado com sucesso');
                       setShowError(true);
-                      setFazerPedido({ "client": "", "table": mesa, "products": [] });
+                      setFazerPedido({ client: '', table: mesa, products: [] });
                       console.log('foi');
                     } else {
                       setShowError(true);
