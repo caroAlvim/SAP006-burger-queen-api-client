@@ -24,11 +24,13 @@ function Pedidos() {
   const [menus, setMenus] = useState(true);
   const [menuAlmoco, setMenuAlmoco] = useState([]);
   const [menuCafe, setMenuCafe] = useState([]);
+  const clientNameInput = document.querySelector(".nome-cliente").value;
 
   const [resumopedido, setResumoPedido] = useState([]);
-  const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
+  const [fazerPedido, setFazerPedido] = useState({ "client": "", "table": mesa, "products": [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
+
 
   const token = localStorage.getItem('token');
   const getAllProducts = () => {
@@ -90,7 +92,7 @@ function Pedidos() {
                       setResumoPedido([...resumopedido, {
                         id: menuCafe[index].id,
                         name: menuCafe[index].name,
-                        price: menu[index].price,
+                        price: menuCafe[index].price,
                         qtd: 1,
                       }]);
                     } else {
@@ -112,24 +114,6 @@ function Pedidos() {
 
         ) : (
           <Panel>
-             <section>
-              <Button
-                buttonClass="menu-button"
-                buttonOnClick={() => {
-                  setMenus(true);
-                }}
-              >Café da Manhã
-              </Button>
-              <Button
-
-                buttonClass="menu-button"
-                buttonOnClick={() => {
-                  setMenus(false);
-                }}
-              >All Day
-              </Button>
-
-            </section>
           <div className="breakfast-menu">
             {menuAlmoco && menuAlmoco.map((item, index) => (
               <Item
@@ -151,7 +135,7 @@ function Pedidos() {
                     }]);
                   } else {
                     resumopedido.map((item, i) => {
-                      if (item.name === menu[index].name) {
+                      if (item.name === menuAlmoco[index].name) {
                         resumopedido[i].qnt++
                 + setResumoPedido([...resumopedido]);
                       }
@@ -178,7 +162,7 @@ function Pedidos() {
           className="nome-cliente"
           type="text"
           placeholder="Digite o nome do cliente"
-          onChange={(event) => setFazerPedido({ ...fazerPedido, client: event.target })}
+          onChange={(event) => setFazerPedido({ ...fazerPedido, "client": event.target.value})}
         />
         <section>
           <label className="item">Item</label>
@@ -253,9 +237,9 @@ function Pedidos() {
                     Authorization: `${token}`,
                   },
                   body: JSON.stringify({
-                    client: 'ana',
-                    table: mesa,
-                    products:
+                    "client": clientNameInput,
+                    "table": mesa,
+                    "products":
                   resumopedido.map((item) => (
                     {
                       id: Number(item.id),
@@ -271,7 +255,7 @@ function Pedidos() {
                     if (data.id !== undefined) {
                       setErroMessage('Pedido enviado com sucesso');
                       setShowError(true);
-                      setFazerPedido({ client: '', table: mesa, products: [] });
+                      setFazerPedido({ "client": "", "table": mesa, "products": [] });
                       console.log('foi');
                     } else {
                       setShowError(true);
