@@ -137,3 +137,12 @@ height: 100px;
     margin-top: 40px;
    
 }
+.menu-extras{
+  background-color: blue;
+    width: 400px;
+    height: 200px;
+}
+.img-button-extra{
+    width: 15px;
+    height: 15px;
+}
