@@ -1,4 +1,15 @@
 import React from 'react';
+// import styled from 'styled-components';
+
+// const Prod = styled.div`
+// display: flex;
+// padding: 0.5rem;
+// flex-direction: column;
+// align-content: center;
+// align-items: center;
+// font-family: 'Montserrat', sans-serif;
+// }
+// `;
 
 function OrdersProducts({
   name,
