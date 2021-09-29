@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
-import Frango from '../../../img/frango.png'
+import Frango from '../../../img/frango.png';
 
 import Panel from '../../../components/Menu/menu';
 import InputTxt from '../../../components/Input/inputTxt';
@@ -27,8 +27,8 @@ function Pedidos() {
   const [selectedBurger, setSelectedBurger] = useState({
     name: null,
     flavor: null,
-    complement: null
-});
+    complement: null,
+  });
 
   const [menuAlmoco, setMenuAlmoco] = useState([]);
   const [menuCafe, setMenuCafe] = useState([]);
@@ -36,13 +36,13 @@ function Pedidos() {
   const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
-  const hamburguers = [{name: "carne", label: "carne"}, {name: "frango", label: "frango", img: Frango}, {name: "vegetariano", label: "vegetariano"},];
-  const adicionais = [{name: "ovo",}, {name:"queijo",}];
-  const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false)
-  const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false)
+  const hamburguers = [{ name: 'carne', label: 'carne' }, { name: 'frango', label: 'frango', img: Frango }, { name: 'vegetariano', label: 'vegetariano' }];
+  const adicionais = [{ name: 'ovo' }, { name: 'queijo' }];
+  const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false);
+  const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false);
   const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
   const [extrasBurgerDuplo, setExtrasBurgerDuplo] = useState('');
-  const [listaCompletaDeProdutos, setListaCompletaDeProdutos] = useState("");
+  const [listaCompletaDeProdutos, setListaCompletaDeProdutos] = useState('');
   const token = localStorage.getItem('token');
 
   const getAllProducts = () => {
@@ -59,21 +59,19 @@ function Pedidos() {
         setMenuCafe(breakfast);
         const allDayMenu = json.filter((item) => item.type === 'all-day');
 
-        const allDaySlice = allDayMenu.slice(18,24);
-        const AllDayBurger = allDayMenu.slice(8,10)
-        const burguerAndAll = AllDayBurger.concat(allDaySlice)
-      
-              
-       
+        const allDaySlice = allDayMenu.slice(18, 24);
+        const AllDayBurger = allDayMenu.slice(8, 10);
+        const burguerAndAll = AllDayBurger.concat(allDaySlice);
+
         setMenuAlmoco(burguerAndAll);
         const allproducts = json;
-        setListaCompletaDeProdutos(allproducts)
-  
-       // console.log(allDaySlice)
-      
-        //console.log(AllDayBurger)
-        
-        console.log(burguerAndAll)
+        setListaCompletaDeProdutos(allproducts);
+
+        // console.log(allDaySlice)
+
+        // console.log(AllDayBurger)
+
+        console.log(burguerAndAll);
       });
   };
 
@@ -88,7 +86,7 @@ function Pedidos() {
               <Button
                 buttonClass="menu-button"
                 buttonOnClick={() => {
-                  alert("asdasd")
+                  alert('asdasd');
                   setMenus(true);
                 }}
               >Café da Manhã
@@ -97,7 +95,7 @@ function Pedidos() {
 
                 buttonClass="menu-button"
                 buttonOnClick={() => {
-                  alert('aaaaaaaaaaaaa')
+                  alert('aaaaaaaaaaaaa');
                   setMenus(false);
                 }}
               >All Day
@@ -161,42 +159,40 @@ function Pedidos() {
 
             </section>
             <div className="breakfast-menu">
-            <ul className="lista-menu">
-                          {menuAlmoco.map((item, index) => (
-                            <li key={index} className="item-lista-menu">
-                              <label>{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
-                              <input
-                                className="button-adicionar"
-                                id={item.name}
-                                type="button"         
-                                name={item.id}
-                                onClick={(event) => {
-                                  handleExtras(event);
-                                  if(item.name === "Hambúrguer simples" || item.name === "Hambúrguer duplo"){
-                                    selectedBurger.name = menuAlmoco[index].name;
-                                    setSelectedBurger({...selectedBurger});
+              <ul className="lista-menu">
+                {menuAlmoco.map((item, index) => (
+                  <li key={index} className="item-lista-menu">
+                    <label>{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
+                    <input
+                      className="button-adicionar"
+                      id={item.name}
+                      type="button"
+                      name={item.id}
+                      onClick={(event) => {
+                        handleExtras(event);
+                        if (item.name === 'Hambúrguer simples' || item.name === 'Hambúrguer duplo') {
+                          selectedBurger.name = menuAlmoco[index].name;
+                          setSelectedBurger({ ...selectedBurger });
+                        } else if (!resumopedido.some((pedido) => pedido.name === menuAlmoco[index].name)) {
+                          setResumoPedido([...resumopedido, {
+                            id: menuAlmoco[index].id, name: menuAlmoco[index].name, price: menuAlmoco[index].price, qtd: 1,
+                          }]);
+                        } else {
+                          resumopedido.map((item, i) => {
+                            if (item.name === menuAlmoco[index].name) {
+                              resumopedido[i].qtd++;
+                              setResumoPedido([...resumopedido]);
+                            }
+                          });
+                        }
+                      }}
+                    />
+                    {openExtrasBurgerSimples === true && item.name === 'Hambúrguer simples' && <section className="menu-extras">{extrasBurgerSimples}</section>}
+                    {openExtrasBurgerDuplo === true && item.name === 'Hambúrguer duplo' && <section className="menu-extras">{extrasBurgerDuplo}</section>}
 
-                                  } else {
-                                    if(!resumopedido.some(pedido => pedido.name === menuAlmoco[index].name)){
-                                      setResumoPedido([...resumopedido, {"id": menuAlmoco[index].id, "name": menuAlmoco[index].name, "price": menuAlmoco[index].price, "qtd": 1}]);
-                                    } else {
-                                      resumopedido.map((item, i) => {
-                                          if(item.name === menuAlmoco[index].name) {
-                                            resumopedido[i].qtd++; 
-                                            setResumoPedido([...resumopedido]);
-                                          }
-                                      })
-                                    }
-                                  }                                        
-                                }}
-                              />
-                              {openExtrasBurgerSimples === true && item.name === "Hambúrguer simples" && <section className="menu-extras">{extrasBurgerSimples}</section>}
-                              {openExtrasBurgerDuplo === true && item.name === "Hambúrguer duplo" && <section className="menu-extras">{extrasBurgerDuplo}</section>}
-                             
-                            </li>
-                            
-                          ))}
-                        </ul>
+                  </li>
+                ))}
+              </ul>
 
             </div>
           </Panel>
@@ -334,28 +330,29 @@ function Pedidos() {
           <section className="opcoes-burguer">
             <p className="titulo-extras">Hambúrguer</p>
             <section className="img-input-extras">
-            {hamburguers.map(tipoHamburguer => (
-              <>
-                <input
-                  key={tipoHamburguer.name}
-                  type="radio"
-                  name="escolher-hamburguer"
-                  id={tipoHamburguer.name}
-                  onClick={(event) => {
-                    selectedBurger.flavor = event.currentTarget.id;
-                    setSelectedBurger({...selectedBurger});
-                  }}
-                />
-                <label for={tipoHamburguer.name}>
-                  <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
-                {tipoHamburguer.label}</label>
-              </>
-            ))}
+              {hamburguers.map((tipoHamburguer) => (
+                <>
+                  <input
+                    key={tipoHamburguer.name}
+                    type="radio"
+                    name="escolher-hamburguer"
+                    id={tipoHamburguer.name}
+                    onClick={(event) => {
+                      selectedBurger.flavor = event.currentTarget.id;
+                      setSelectedBurger({ ...selectedBurger });
+                    }}
+                  />
+                  <label htmlFor={tipoHamburguer.name}>
+                    <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
+                    {tipoHamburguer.label}
+                  </label>
+                </>
+              ))}
             </section>
           </section>
-            <section className="opcoes-adicionais">
-              <p className="titulo-extras">Adicionais R$1</p>
-              <section className="img-input-extras">
+          <section className="opcoes-adicionais">
+            <p className="titulo-extras">Adicionais R$1</p>
+            <section className="img-input-extras">
               {adicionais.map((tipoAdicional, index) => (
                 <>
                   <input
@@ -365,74 +362,68 @@ function Pedidos() {
                     id={tipoAdicional.name}
                     onChange={(event) => {
                       selectedBurger.complement = event.currentTarget.id;
-                      setSelectedBurger({...selectedBurger});
+                      setSelectedBurger({ ...selectedBurger });
                     }}
                   />
-                  <label for={tipoAdicional.name} key={index}>
+                  <label htmlFor={tipoAdicional.name} key={index}>
                     <img className="img-button-extra" alt={tipoAdicional.name} src={tipoAdicional.img} />
-                  {tipoAdicional.name}</label>
-                </> 
+                    {tipoAdicional.name}
+                  </label>
+                </>
               ))}
             </section>
           </section>
         </div>
 
-          <input 
-            className="button-ok-extras"
-            type="button"
-            value="OK"
-            onClick={(event) => {
-              if(selectedBurger.flavor !== null) {
-                listaCompletaDeProdutos.filter(produto => {
-                  if(produto.name === selectedBurger.name && produto.flavor === selectedBurger.flavor && produto.complement === selectedBurger.complement) {
-                    setResumoPedido([...resumopedido, {"id": produto.id, "name": [{"name": produto.name, "flavor": produto.flavor, "complement": produto.complement}], "price": produto.price, "qtd": 1}]);
-                  }
-                  return resumopedido
-                })
-                setOpenExtrasBurgerSimples(false);
-                setOpenExtrasBurgerDuplo(false);
-                event.currentTarget.parentNode.parentNode.querySelector(".button-adicionar").classList.remove("rotate");
-                setSelectedBurger({
-                  name: null,
-                  flavor: null,
-                  complement: null
-                });
-              }else {
-                console.log("Você precisa escolher qual o hambúrguer!");
-              }
-              
-            }}
-          />
-        </>
-      )
+        <input
+          className="button-ok-extras"
+          type="button"
+          value="OK"
+          onClick={(event) => {
+            if (selectedBurger.flavor !== null) {
+              listaCompletaDeProdutos.filter((produto) => {
+                if (produto.name === selectedBurger.name && produto.flavor === selectedBurger.flavor && produto.complement === selectedBurger.complement) {
+                  setResumoPedido([...resumopedido, {
+                    id: produto.id, name: [{ name: produto.name, flavor: produto.flavor, complement: produto.complement }], price: produto.price, qtd: 1,
+                  }]);
+                }
+                return resumopedido;
+              });
+              setOpenExtrasBurgerSimples(false);
+              setOpenExtrasBurgerDuplo(false);
+              event.currentTarget.parentNode.parentNode.querySelector('.button-adicionar').classList.remove('rotate');
+              setSelectedBurger({
+                name: null,
+                flavor: null,
+                complement: null,
+              });
+            } else {
+              console.log('Você precisa escolher qual o hambúrguer!');
+            }
+          }}
+        />
+      </>
+    );
   }
 
-
   function handleExtras(event) {
-    if(event.target.id === "Hambúrguer simples"){
-        if(openExtrasBurgerSimples === true){
-            setOpenExtrasBurgerSimples(false);
-          
-        } else {
-           
-            setExtrasBurgerSimples(extras());
-            setOpenExtrasBurgerSimples(true);
-        }
+    if (event.target.id === 'Hambúrguer simples') {
+      if (openExtrasBurgerSimples === true) {
+        setOpenExtrasBurgerSimples(false);
+      } else {
+        setExtrasBurgerSimples(extras());
+        setOpenExtrasBurgerSimples(true);
+      }
     }
-    if(event.target.id === "Hambúrguer duplo"){
-        if(openExtrasBurgerDuplo === true){
-            setOpenExtrasBurgerDuplo(false);
-            
-        } else {
-           
-            setExtrasBurgerDuplo(extras());
-            setOpenExtrasBurgerDuplo(true);
-        }
+    if (event.target.id === 'Hambúrguer duplo') {
+      if (openExtrasBurgerDuplo === true) {
+        setOpenExtrasBurgerDuplo(false);
+      } else {
+        setExtrasBurgerDuplo(extras());
+        setOpenExtrasBurgerDuplo(true);
+      }
     }
+  }
 }
-
-}
-
-
 
 export default Pedidos;
