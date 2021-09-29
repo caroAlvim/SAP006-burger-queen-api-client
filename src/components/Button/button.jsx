@@ -3,7 +3,6 @@
 import React from 'react';
 
 function Button({
-  // eslint-disable-next-line react/prop-types
   buttonOnClick,
   buttonClass,
   children,

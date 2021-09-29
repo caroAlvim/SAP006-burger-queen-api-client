@@ -10,7 +10,7 @@
     justify-content: center;
     background-color: #03e5b7;
     background-image: linear-gradient(315deg, #03e5b7 0%, #037ade 74%); 
-    padding: 0 2rem 4rem;
+    padding: 0 2rem 0;
 }
 
 .logo-login {
@@ -91,4 +91,15 @@
     color: red;
     font-size: 09px;
 
+}
+
+.flower-div {
+    display: flex;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.flower1-img {
+    width: 7rem;
 }
