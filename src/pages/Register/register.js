@@ -42,7 +42,7 @@ function Register() {
           } else {
             routerRegister();
           }
-          console.log('deu bom');
+          // console.log('deu bom');
         });
     }
   };

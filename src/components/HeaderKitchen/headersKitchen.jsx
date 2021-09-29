@@ -7,14 +7,14 @@ import window from '../../img/window.png';
 const Header = styled.section`
 width: 100%;
 padding: 1rem;
-display: flex;
-flex-direction: row-reverse;
+display: grid;
+grid-template-columns: 5fr 1fr;
 justify-content: center;
+align-content: center;
 align-items: center;
 font-family: Bob;
 height: 25vh;
 }
-
 `;
 
 function Headerkitchen() {
