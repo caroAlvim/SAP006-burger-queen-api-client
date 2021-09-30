@@ -24,13 +24,6 @@ function Kitchen() {
     filterOrders();
   }, []);
 
-  // useEffect(() => {
-  //   trocar as cores dos botoes de acordo com o status
-  //   if (item.status === 'pending') {
-  //     troca cores
-  //   }
-  // }, []);
-
   return (
     <>
       <Header />
@@ -57,7 +50,6 @@ function Kitchen() {
                 buttonClass="btn-status"
                 buttonOnClick={() => changeStatusBtn(item.id, item.status)
                   .then((response) => {
-                    console.log(response);
                     const changedOrders = [...orders];
                     changedOrders[index].status = response.status;
                     setOrders(changedOrders);

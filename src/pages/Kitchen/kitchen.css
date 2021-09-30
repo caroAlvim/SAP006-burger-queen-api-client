@@ -7,6 +7,7 @@
     font-family: Bob;
     background-image: linear-gradient(48deg, #348691, #6EDEEA); 
 }
+
 .txt-logOut{
     color: #00000063;
     font-family: Bob;
@@ -29,9 +30,10 @@
 }
 
 .window-img {
-    width: 6.5rem;
+    width: 7.5rem;
     -webkit-transition: -webkit-transform .5s ease;
     transition: transform .5s ease;
+    margin: -20px;
 }
 
 .window-img:hover {

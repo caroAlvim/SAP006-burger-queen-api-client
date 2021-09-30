@@ -48,7 +48,7 @@ const putRequest = (status) => {
   return optionsApi;
 };
 
-export const changeStatusAPI = (id, status) => (
+const changeStatusAPI = (id, status) => (
   fetch(`${apiRequestOrders}/${id}`, putRequest(status))
     .then((response) => response.json())
 );
