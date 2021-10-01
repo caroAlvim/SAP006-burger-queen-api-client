@@ -242,7 +242,7 @@ header {
   margin-left: 25px;
 
 }
-.nav-pedidos{
+/* .nav-pedidos{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -263,4 +263,5 @@ header {
    .nav-btn:hover{
     background-color: tomato;
   }
- }
+ } */
+}

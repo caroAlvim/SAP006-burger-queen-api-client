@@ -15,6 +15,11 @@
     font-family: Bob; 
     font-size: 12px;
 }
+.orders-time{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin: 1rem 0 2rem 4.5rem;
+}
 
 .list-orders {
     display: flex;

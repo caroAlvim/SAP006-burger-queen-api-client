@@ -1,0 +1,39 @@
+.nav-orders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #F9F7F4; 
+}
+
+.nav-btn { 
+    padding: 0.8rem;
+    border-radius: 2rem;
+    background-color: #f38a8aeb;
+    border: none;
+    cursor: pointer;
+    color: black;
+    width: 15rem;
+    margin: 1.5rem;
+    font-size: 16px;
+    margin-top: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Bob;
+    transition: .2s;
+}
+
+.nav-btn:hover {
+    background-color: #ff6161eb;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+@media (min-width: 1026px){
+    .nav-btn{
+        padding: 0.8rem;
+        margin-top: 140px;
+    }
+
+}
