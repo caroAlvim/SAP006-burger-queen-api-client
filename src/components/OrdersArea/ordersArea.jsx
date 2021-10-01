@@ -10,6 +10,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 font-family: Bob;
+height: 90vh
 
 @media (min-width: 1440px) {
   display: grid;

@@ -7,7 +7,7 @@ import OrdersProducts from '../../components/OrdersProducts/ordersProducts';
 import Button from '../../components/Button/button';
 import {
   requestAllOrders, btnTextStatus, changeStatusBtn,
-} from '../../service/kitchenServices';
+} from '../../service/ordersServices';
 
 function Kitchen() {
   const [orders, setOrders] = useState([]);
@@ -36,6 +36,8 @@ function Kitchen() {
               table={item.table}
               client_name={item.client_name}
               status={item.status}
+              createdAt={new Date(item.createdAt).toLocaleString('pt-br')}
+              updatedAt={new Date(item.updatedAt).toLocaleString('pt-br')}
             >
               {item.Products.map((prod) => (
                 <OrdersProducts
@@ -61,6 +63,7 @@ function Kitchen() {
           ))}
         </OrdersArea>
       </div>
+
     </>
 
   );

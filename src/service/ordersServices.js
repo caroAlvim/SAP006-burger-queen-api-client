@@ -66,4 +66,35 @@ export const changeStatusBtn = (id, status) => {
   }
 };
 
+// export const convertTime = (convertDate) => {
+//   const time = new Date().toLocaleDateString('pt-br');
+// };
+
+// Sallon services
+export const btnStatusSaloon = (status) => {
+  switch (status) {
+    case 'ready':
+      return 'Pronto';
+
+    case 'delivered':
+      return 'Entregue';
+
+    default:
+      return 'Pronto';
+  }
+};
+
+export const changeStatusSallon = (id, status) => {
+  switch (status) {
+    case 'ready':
+      return changeStatusAPI(id, 'delivered');
+
+    case 'deliverd':
+      return changeStatusAPI(id, 'finish');
+
+    default:
+      return changeStatusAPI(id, 'deliverd');
+  }
+};
+
 export const removeItem = (remove) => (remove.item);

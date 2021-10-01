@@ -6,6 +6,8 @@ function OrdersKitchen({
   id,
   client_name,
   table,
+  createdAt,
+  updatedAt,
   children,
 }) {
   return (
@@ -15,6 +17,10 @@ function OrdersKitchen({
           <h2> Mesa: {table}</h2>
           <h2> cliente: {client_name}</h2>
         </div>
+        <aside className="orders-time">
+          <p>Pedido feito às {createdAt} </p>
+          <p>Finalizado às {updatedAt} </p>
+        </aside>
         <div className="list-orders">
           {children}
         </div>
