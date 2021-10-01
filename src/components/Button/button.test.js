@@ -19,3 +19,4 @@ it('Deve executar a funçao de click ao clicar', () => {
   fireEvent.click(clicado);
   expect(fn).toHaveBeenCalledTimes(1);
 });
+

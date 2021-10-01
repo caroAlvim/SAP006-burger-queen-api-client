@@ -8,7 +8,10 @@ import InputTxt from './inputTxt';
 
 it('Deve renderizar o input com  o texto', () => {
   const placeholder = 'Digite seu E-mail';
-  render(<InputTxt placeholder={placeholder}> </InputTxt>);
+  render(<InputTxt inputPlaceholder={placeholder} />);
+  const input = screen.getByPlaceholderText(placeholder);
+  ///screen.debug();
+  expect(input).toBeInTheDocument();
 });
 
 /*

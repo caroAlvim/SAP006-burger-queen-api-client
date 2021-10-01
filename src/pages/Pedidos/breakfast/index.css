@@ -134,15 +134,32 @@ height: 100px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-between;
-    margin-top: 40px;
+    margin-top: 40px; 
    
 }
 .menu-extras{
-  background-color: blue;
-    width: 400px;
-    height: 200px;
+  background-color: rgb(184, 160, 81);
+    width: 300px;
+    height: 100px;
+    border-radius: 25px;
+    justify-content: center;
+    position: absolute;
+    
+
+}
+.escolhas-extras{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .img-button-extra{
     width: 15px;
     height: 15px;
+}
+.choice-burguer{
+   
+}
+.img-input-extras label{
+    font-size: 15px;
+
 }
