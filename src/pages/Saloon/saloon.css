@@ -191,15 +191,14 @@ header {
   width: 500px;
   height: 400px;
   justify-content: space-between;
-  margin-top: 110px;
-  margin-left: 220px;
+  margin-top: 265px;
+  margin-left: 272px;
 
 }
 
 .title-table{
   display: flex;
   position: absolute;
-  margin-top: 10px;
   margin-left: 34%;
   font-family: Bob;
 

@@ -71,7 +71,6 @@ export const changeStatusBtn = (id, status) => {
 // };
 
 // Sallon services
-
 export const btnStatusSaloon = (status) => {
   switch (status) {
     case 'ready':

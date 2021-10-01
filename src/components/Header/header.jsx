@@ -17,6 +17,7 @@ function Header() {
   return (
     <>
       <header>
+
         <div className="logo-login">
           <img className="logo-img" src={Logo} alt="Logo The Krusty Krab" />
         </div>
@@ -39,21 +40,24 @@ function Header() {
         <div className="bubble-5 bubble-container anim bubble-animation-x">
           <div className="bubble bubble-animation-y" />
         </div>
+
+        <div className="nav-orders">
+          <Button
+            buttonClass="nav-btn"
+            buttonOnClick={ordersDone}
+          >
+            Pedidos Prontos
+          </Button>
+          <Button
+            buttonClass="nav-btn"
+            buttonOnClick={ordersDelivered}
+          >
+            Pedidos Entregues
+          </Button>
+        </div>
+
       </header>
-      <div className="nav-orders">
-        <Button
-          buttonClass="nav-btn"
-          buttonOnClick={ordersDone}
-        >
-          Pedidos Prontos
-        </Button>
-        <Button
-          buttonClass="nav-btn"
-          buttonOnClick={ordersDelivered}
-        >
-          Pedidos Entregues
-        </Button>
-      </div>
+
     </>
   );
 }
