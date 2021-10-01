@@ -5,10 +5,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
-import Frango from '../../../img/frango.png';
-
 import Panel from '../../../components/Menu/menu';
-import InputTxt from '../../../components/Input/inputTxt';
+
 
 function Pedidos() {
   useEffect(() => {
@@ -159,7 +157,7 @@ function Pedidos() {
 
             </section>
             <div className="all-day-menu">
-              <ul className="lista-menu">
+              <ul className="lista-menu-dois">
                 {menuAlmoco.map((item, index) => (
                   <li key={index} className="container-food">
                     <img className="img-food" src={item.image} ></img>
