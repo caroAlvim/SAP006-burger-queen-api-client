@@ -5,10 +5,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
-import Frango from '../../../img/frango.png';
-
 import Panel from '../../../components/Menu/menu';
-import InputTxt from '../../../components/Input/inputTxt';
+
 
 function Pedidos() {
   useEffect(() => {
@@ -36,7 +34,7 @@ function Pedidos() {
   const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
-  const hamburguers = [{ name: 'carne', label: 'carne' }, { name: 'frango', label: 'frango', img: Frango }, { name: 'vegetariano', label: 'vegetariano' }];
+  const hamburguers = [{ name: 'carne', label: 'carne' }, { name: 'frango', label:'frango'}, { name: 'vegetariano', label: 'vegetariano' }];
   const adicionais = [{ name: 'ovo' }, { name: 'queijo' }];
   const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false);
   const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false);
@@ -158,14 +156,18 @@ function Pedidos() {
               </Button>
 
             </section>
-            <div className="breakfast-menu">
-              <ul className="lista-menu">
+            <div className="all-day-menu">
+              <ul className="lista-menu-dois">
                 {menuAlmoco.map((item, index) => (
-                  <li key={index} className="item-lista-menu">
+                  <li key={index} className="container-food">
+                    <img className="img-food" src={item.image} ></img>
+                    <h1>ADD</h1>
                     <label>{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
                     <input
-                      className="button-adicionar"
+                      className="add-button"
+                      inputPlaceholder="oi"
                       id={item.name}
+                      ImgSrc={item.image}
                       type="button"
                       name={item.id}
                       onClick={(event) => {
@@ -186,13 +188,16 @@ function Pedidos() {
                           });
                         }
                       }}
+                      
                     />
+                   
                     {openExtrasBurgerSimples === true && item.name === 'Hambúrguer simples' && <section className="menu-extras">{extrasBurgerSimples}</section>}
                     {openExtrasBurgerDuplo === true && item.name === 'Hambúrguer duplo' && <section className="menu-extras">{extrasBurgerDuplo}</section>}
 
                   </li>
                 ))}
               </ul>
+            
 
             </div>
           </Panel>
@@ -219,6 +224,8 @@ function Pedidos() {
                   {typeof item.name === 'string' ? item.name : item.name.map((item) => (
                     <>
                       <label className="title-pedido">{item.name}</label>
+                      <label className="title-pedido">{item.flavor}</label>
+                      <label className="title-pedido">{item.complement}</label>
 
                     </>
                   ))}
@@ -255,6 +262,15 @@ function Pedidos() {
                       }
                     }}
                   />
+                  <input
+            className="button-excluir-item"
+            id="excluir-item"
+            type="button"
+            onClick={() => {
+            resumopedido.splice(index, 1);
+               setResumoPedido([...resumopedido]);
+                                      }}
+                                  />
 
                 </div>
               </li>
@@ -335,6 +351,7 @@ function Pedidos() {
                   <input
                     key={tipoHamburguer.name}
                     type="radio"
+                    className="choice-burguer"
                     name="escolher-hamburguer"
                     id={tipoHamburguer.name}
                     onClick={(event) => {
@@ -342,8 +359,8 @@ function Pedidos() {
                       setSelectedBurger({ ...selectedBurger });
                     }}
                   />
-                  <label htmlFor={tipoHamburguer.name}>
-                    <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
+                  <label className="label-input-menu" htmlFor={tipoHamburguer.name}>
+                    
                     {tipoHamburguer.label}
                   </label>
                 </>
@@ -380,6 +397,7 @@ function Pedidos() {
           type="button"
           value="OK"
           onClick={(event) => {
+            alert('sdfsd')
             if (selectedBurger.flavor !== null) {
               listaCompletaDeProdutos.filter((produto) => {
                 if (produto.name === selectedBurger.name && produto.flavor === selectedBurger.flavor && produto.complement === selectedBurger.complement) {
@@ -391,7 +409,6 @@ function Pedidos() {
               });
               setOpenExtrasBurgerSimples(false);
               setOpenExtrasBurgerDuplo(false);
-              event.currentTarget.parentNode.parentNode.querySelector('.button-adicionar').classList.remove('rotate');
               setSelectedBurger({
                 name: null,
                 flavor: null,
