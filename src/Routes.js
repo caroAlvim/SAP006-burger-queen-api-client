@@ -10,6 +10,8 @@ import Saloon from './pages/Saloon/saloon';
 import Page404 from './pages/Page404/index';
 import Pedidos from './pages/Pedidos/breakfast/index';
 import Kitchen from './pages/Kitchen/kitchen';
+import OrdersSaloon from './pages/OrdersSaloon/ordersSaloon';
+import OrdersDelivered from './pages/OrdersDelivered/ordersDelivered';
 import GlobalStyle from './components/GlobalStyle';
 
 import PrivateRoute from './service/PrivateRoute';
@@ -33,6 +35,14 @@ function Routes() {
 
         <PrivateRoute exact path="/saloon">
           <Saloon />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/orders-done">
+          <OrdersSaloon />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/orders-delivered">
+          <OrdersDelivered />
         </PrivateRoute>
 
         <PrivateRoute exact path="/saloon/pedidos/:mesa">

@@ -7,7 +7,7 @@ import OrdersProducts from '../../components/OrdersProducts/ordersProducts';
 import Button from '../../components/Button/button';
 import {
   requestAllOrders, btnTextStatus, changeStatusBtn,
-} from '../../service/kitchenServices';
+} from '../../service/ordersServices';
 
 function Kitchen() {
   const [orders, setOrders] = useState([]);
@@ -24,13 +24,6 @@ function Kitchen() {
     filterOrders();
   }, []);
 
-  // useEffect(() => {
-  //   trocar as cores dos botoes de acordo com o status
-  //   if (item.status === 'pending') {
-  //     troca cores
-  //   }
-  // }, []);
-
   return (
     <>
       <Header />
@@ -43,6 +36,8 @@ function Kitchen() {
               table={item.table}
               client_name={item.client_name}
               status={item.status}
+              createdAt={new Date(item.createdAt).toLocaleString('pt-br')}
+              updatedAt={new Date(item.updatedAt).toLocaleString('pt-br')}
             >
               {item.Products.map((prod) => (
                 <OrdersProducts
@@ -57,7 +52,6 @@ function Kitchen() {
                 buttonClass="btn-status"
                 buttonOnClick={() => changeStatusBtn(item.id, item.status)
                   .then((response) => {
-                    console.log(response);
                     const changedOrders = [...orders];
                     changedOrders[index].status = response.status;
                     setOrders(changedOrders);
@@ -69,6 +63,7 @@ function Kitchen() {
           ))}
         </OrdersArea>
       </div>
+
     </>
 
   );

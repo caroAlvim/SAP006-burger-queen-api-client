@@ -48,7 +48,7 @@ const putRequest = (status) => {
   return optionsApi;
 };
 
-export const changeStatusAPI = (id, status) => (
+const changeStatusAPI = (id, status) => (
   fetch(`${apiRequestOrders}/${id}`, putRequest(status))
     .then((response) => response.json())
 );
@@ -63,6 +63,37 @@ export const changeStatusBtn = (id, status) => {
 
     default:
       return changeStatusAPI(id, 'pending');
+  }
+};
+
+// export const convertTime = (convertDate) => {
+//   const time = new Date().toLocaleDateString('pt-br');
+// };
+
+// Sallon services
+export const btnStatusSaloon = (status) => {
+  switch (status) {
+    case 'ready':
+      return 'Pronto';
+
+    case 'delivered':
+      return 'Entregue';
+
+    default:
+      return 'Pronto';
+  }
+};
+
+export const changeStatusSallon = (id, status) => {
+  switch (status) {
+    case 'ready':
+      return changeStatusAPI(id, 'delivered');
+
+    case 'deliverd':
+      return changeStatusAPI(id, 'finish');
+
+    default:
+      return changeStatusAPI(id, 'deliverd');
   }
 };
 
