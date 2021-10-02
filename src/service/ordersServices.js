@@ -79,7 +79,7 @@ export const btnStatusSaloon = (status) => {
     case 'delivered':
       return 'Entregue';
 
-    case '':
+    case 'finish':
       return 'Deletado';
 
     default:

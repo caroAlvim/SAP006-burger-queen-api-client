@@ -17,11 +17,24 @@ margin-top: -4rem;
   grid-template-columns: 1fr 1fr 1fr;
 
 }
+
+@media (min-width: 1680px) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 `;
 
-function OrdersArea({ children }) {
+const Header = styled.div`
+font-family: Bob;
+font-size: 26px;
+display: flex;
+justify-content: center;
+`;
+
+function OrdersArea({ msg, children }) {
   return (
     <>
+      <Header> {msg} </Header>
       <Section>
         {children}
       </Section>

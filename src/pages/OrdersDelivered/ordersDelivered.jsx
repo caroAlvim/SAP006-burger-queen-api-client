@@ -5,6 +5,8 @@ import OrdersArea from '../../components/OrdersArea/ordersArea';
 import OrdersKitchen from '../../components/OrdersKitchen/ordersKitchen';
 import OrdersProducts from '../../components/OrdersProducts/ordersProducts';
 import Button from '../../components/Button/button';
+import OrdersMsg from '../../components/OrdersMsg/ordersMsg';
+import Garbage from '../../img/garbage.png';
 import { requestAllOrders, deleteOrder } from '../../service/ordersServices';
 
 const Delivered = styled.section`
@@ -40,42 +42,55 @@ function OrdersDeliverd() {
     <>
       <Header />
       <Delivered>
-        <h2> Pedidos Entregues </h2>
+        <h2> </h2>
       </Delivered>
-      <OrdersArea>
-        {ordersDelivered.map((item, index) => (
-          <OrdersKitchen
-            key={item.id}
-            table={item.table}
-            client_name={item.client_name}
-            status={item.status}
-            createdAt={new Date(item.createdAt).toLocaleString('pt-br')}
-            updatedAt={new Date(item.updatedAt).toLocaleString('pt-br')}
-          >
-            {item.Products.map((prod) => (
-              <OrdersProducts
-                key={prod.id}
-                name={prod.name}
-                flavour={prod.flavour}
-                complement={prod.complement}
-                qtd={prod.qtd}
-              />
-            ))}
-            <Button
-              buttonClass="btn-status"
-              buttonOnClick={() => deleteOrder(item.id)
-                .then((response) => {
-                  const changedOrders = [...ordersDelivered];
-                  changedOrders[index].status = response.status;
-                  setOrdersDelivered(changedOrders);
-                  console.log('excluido');
-                })}
+      {ordersDelivered.length > 0 ? (
+        <OrdersArea
+          msg="Pedidos Entregues"
+        >
+          {ordersDelivered.map((item, index) => (
+            <OrdersKitchen
+              key={item.id}
+              table={item.table}
+              client_name={item.client_name}
+              status={item.status}
+              createdAt={new Date(item.processedAt).toLocaleString('pt-br')}
+              updatedAt={new Date(item.updatedAt).toLocaleString('pt-br')}
             >
-              Excluir
-            </Button>
-          </OrdersKitchen>
-        ))}
-      </OrdersArea>
+              {item.Products.map((prod) => (
+                <OrdersProducts
+                  key={prod.id}
+                  name={prod.name}
+                  flavour={prod.flavour}
+                  complement={prod.complement}
+                  qtd={prod.qtd}
+                />
+              ))}
+              <Button
+                buttonClass="btn-status"
+                buttonOnClick={() => deleteOrder(item.id)
+                  .then((response) => {
+                    const changedOrders = [...ordersDelivered];
+                    changedOrders[index].id = response.id;
+                    setOrdersDelivered(changedOrders);
+                    // modal para dizer q foi excluido
+                    console.log('excluido');
+                  })}
+              >
+                Excluir
+              </Button>
+            </OrdersKitchen>
+          ))}
+        </OrdersArea>
+
+      ) : (
+        <OrdersMsg
+          img={Garbage}
+        >
+          A cozinha está com o lixo acumulado. Ajude o Bob.
+        </OrdersMsg>
+      )}
+
     </>
   );
 }

@@ -14,6 +14,7 @@ align-content: center;
 align-items: center;
 font-family: Bob;
 height: 25vh;
+background-color: #faf6f3;
 }
 `;
 
