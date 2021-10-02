@@ -55,3 +55,5 @@
 //     expect(goToSaloon).toBe('/salao');
 //   });
 // });
+
+// jest.mock

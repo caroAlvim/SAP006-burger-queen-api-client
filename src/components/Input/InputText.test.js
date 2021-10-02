@@ -1,4 +1,27 @@
 /* eslint-disable no-undef */
+
+import React from 'react';
+import {
+  render, screen, // fireEvent,
+} from '@testing-library/react';
+import InputTxt from './inputTxt';
+
+it('Deve renderizar o input com  o texto', () => {
+  const placeholder = 'Digite seu E-mail';
+  render(<InputTxt inputPlaceholder={placeholder} />);
+  const input = screen.getByPlaceholderText(placeholder);
+  // screen.debug();
+  expect(input).toBeInTheDocument();
+});
+
+/*
+it('Password Id Test', () => {
+  const passwordITest = 'passwordTest';
+  const encontrarPassword = screen.queryByTestId(passwordITest);
+  expect(encontrarPassword).toBeInTheDocument();
+});
+*/
+/*
 import React from 'react';
 import {
   render, screen, fireEvent,
@@ -20,3 +43,4 @@ it('Deve executar a funçao de click ao clicar', () => {
   expect(fn).toHaveBeenCalledTimes(1);
 });
 
+*/
