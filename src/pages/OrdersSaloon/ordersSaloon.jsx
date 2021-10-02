@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import Header from '../../components/Header/header';
 import OrdersArea from '../../components/OrdersArea/ordersArea';
 import OrdersKitchen from '../../components/OrdersKitchen/ordersKitchen';
@@ -7,6 +8,14 @@ import Button from '../../components/Button/button';
 import {
   requestAllOrders, changeStatusSallon, btnStatusSaloon,
 } from '../../service/ordersServices';
+
+const Div = styled.div`
+margin-top: 18rem;
+font-family: Bob;
+font-size: 16px;
+display: flex;
+justify-content: center;
+`;
 
 function OrdersSaloon() {
   const [ordersDone, setOrdersDone] = useState([]);
@@ -26,7 +35,9 @@ function OrdersSaloon() {
   return (
     <>
       <Header />
-
+      <Div>
+        <h1> Para entregar </h1>
+      </Div>
       <OrdersArea>
         {ordersDone.map((item, index) => (
           <OrdersKitchen

@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 font-family: Bob;
-height: 90vh
+margin-top: -4rem;
 
 @media (min-width: 1440px) {
   display: grid;
@@ -21,9 +21,11 @@ height: 90vh
 
 function OrdersArea({ children }) {
   return (
-    <Section>
-      {children}
-    </Section>
+    <>
+      <Section>
+        {children}
+      </Section>
+    </>
   );
 }
 
