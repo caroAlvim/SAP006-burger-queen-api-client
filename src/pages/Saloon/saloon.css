@@ -174,10 +174,8 @@ header {
 }
 .logo-img{
   width: 10rem;
-  margin-left: 80%;
-  margin-top: -4px;
-
 }
+
 .all-table{
   display: flex;
   justify-content: space-between;

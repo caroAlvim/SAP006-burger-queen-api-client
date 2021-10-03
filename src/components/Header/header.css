@@ -30,6 +30,22 @@
     transform: scale(1.1);
 }
 
+.ocean-img{
+    width: 5rem;
+    margin-left: 10rem;
+}
+
+.ocean-img-flo{
+    width: 6rem;
+    margin-left: 1rem;
+}
+
+.ocean-img-flow{
+    width: 7rem;
+    margin-left: 10rem;
+}
+
+
 @media (min-width: 1026px){
     .nav-btn{
         padding: 0.8rem;
