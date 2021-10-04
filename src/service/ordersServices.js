@@ -79,11 +79,8 @@ export const btnStatusSaloon = (status) => {
     case 'delivered':
       return 'Entregue';
 
-    case 'finish':
-      return 'Deletado';
-
     default:
-      return 'Deletado';
+      return 'Pronto';
   }
 };
 
@@ -93,7 +90,7 @@ export const changeStatusSallon = (id, status) => {
       return changeStatusAPI(id, 'delivered');
 
     case 'delivered':
-      return changeStatusAPI(id, 'finish');
+      return changeStatusAPI(id, 'ready');
 
     default:
       return changeStatusAPI(id, 'delivered');

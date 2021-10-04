@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../../components/Header/header';
 import OrdersArea from '../../components/OrdersArea/ordersArea';
@@ -8,6 +9,7 @@ import Button from '../../components/Button/button';
 import OrdersMsg from '../../components/OrdersMsg/ordersMsg';
 import Garbage from '../../img/garbage.png';
 import { requestAllOrders, deleteOrder } from '../../service/ordersServices';
+import ModalMsg from '../../components/ModalMsg/modalMsg';
 
 const Delivered = styled.section`
 display: flex;
@@ -25,6 +27,13 @@ margin-top: 18rem;
 
 function OrdersDeliverd() {
   const [ordersDelivered, setOrdersDelivered] = useState([]);
+  const [confirmModal, setConfirmModal] = useState(null);
+
+  // const history = useHistory();
+
+  // const ordersDeleted = () => {
+  //   history.push('/orders-delivered');
+  // };
 
   const filterOrdersDelivered = () => {
     requestAllOrders()
@@ -73,8 +82,7 @@ function OrdersDeliverd() {
                     const changedOrders = [...ordersDelivered];
                     changedOrders[index].id = response.id;
                     setOrdersDelivered(changedOrders);
-                    // modal para dizer q foi excluido
-                    console.log('excluido');
+                    setConfirmModal(item.id);
                   })}
               >
                 Excluir
@@ -90,6 +98,18 @@ function OrdersDeliverd() {
           A cozinha está com o lixo acumulado. Ajude o Bob.
         </OrdersMsg>
       )}
+
+      <ModalMsg
+        isOpen={Boolean(confirmModal)}
+        msg="Pedido exluído com sucesso."
+      >
+        <Button
+          buttonClass="btn-status"
+          buttonOnClick={() => setConfirmModal(null)}
+        >
+          Ok
+        </Button>
+      </ModalMsg>
 
     </>
   );

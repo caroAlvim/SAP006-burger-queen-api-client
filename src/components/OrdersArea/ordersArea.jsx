@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 font-family: Bob;
-margin-top: -4rem;
+margin-top: -6rem;
 
 @media (min-width: 1440px) {
   display: grid;
@@ -18,7 +18,7 @@ margin-top: -4rem;
 
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 1660px) {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }

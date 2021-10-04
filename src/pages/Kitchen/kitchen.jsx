@@ -17,7 +17,7 @@ function Kitchen() {
   const filterOrders = () => {
     requestAllOrders()
       .then((json) => {
-        const allOrders = json.filter((item) => item.status === 'processing' || item.status === 'pending' || item.status === 'ready');
+        const allOrders = json.filter((item) => item.status === 'processing' || item.status === 'pending');
         return setOrders(allOrders);
       });
   };
