@@ -6,6 +6,11 @@ import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
 import Panel from '../../../components/Menu/menu';
+import Carne from '../../../img/carne.png'
+import Frango from '../../../img/frango2.png'
+import Veg from '../../../img/veg.png'
+import Queijo from '../../../img/ovo.png'
+import Ovo from '../../../img/queijo.png'
 
 
 function Pedidos() {
@@ -34,8 +39,8 @@ function Pedidos() {
   const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
-  const hamburguers = [{ name: 'carne', label: 'carne' }, { name: 'frango', label:'frango'}, { name: 'vegetariano', label: 'vegetariano' }];
-  const adicionais = [{ name: 'ovo' }, { name: 'queijo' }];
+  const hamburguers = [{ name: 'carne', label: 'carne', img: Carne  }, { name: 'frango', label:'frango', img: Frango}, { name: 'vegetariano', label: 'vegetariano', img: Veg }];
+  const adicionais = [{ name: 'ovo', img: Ovo }, { name: 'queijo', img: Queijo }];
   const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false);
   const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false);
   const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
@@ -360,6 +365,7 @@ function Pedidos() {
                     }}
                   />
                   <label className="label-input-menu" htmlFor={tipoHamburguer.name}>
+                  <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
                     
                     {tipoHamburguer.label}
                   </label>

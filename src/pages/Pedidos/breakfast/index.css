@@ -139,9 +139,9 @@ height: 100px;
 }
 .menu-extras{
   background-color: rgb(184, 160, 81);
-    width: 300px;
-    height: 100px;
-    border-radius: 25px;
+    width: 355px;
+    height: 140px;
+    border-radius: 20px;
     justify-content: center;
     position: absolute;
     
@@ -153,19 +153,37 @@ height: 100px;
     flex-direction: column;
 }
 .img-button-extra{
-    width: 15px;
-    height: 15px;
+    width: 35px;
+    height: 35px;
 }
-.choice-burguer{
-   
+.img-input-extras{
+    display: flex;
+    justify-content: center;
+    
+
 }
+
 .img-input-extras label{
     font-size: 15px;
+        
+}
+.opcoes-adicionais {
+    margin-top: 20px;
 
+}
+
+.opcoes-burguer {
+    width: 400px;
+    height: 40px;
+}
+.titulo-extras {
+   font-size: 15px;
+   display: flex;
+   justify-content: center;
+ 
 }
 
 .all-day-menu lista-menu {
-    background-color: red;
     display: flex;
 
 }
@@ -175,7 +193,12 @@ height: 100px;
     width: 420px;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:space-between;  
+}
+.button-ok-extras {
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-left: -20px;
 
-    
 }
