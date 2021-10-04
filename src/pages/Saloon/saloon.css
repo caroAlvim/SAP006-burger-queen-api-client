@@ -158,6 +158,30 @@ header {
     }
   }
 
+  .table{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    justify-content: space-between;
+    position: fixed;
+    margin: 11rem auto 0 auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1rem;
+  }
+  
+  .title-table{
+    display: flex;
+    padding: 2rem;
+    width: 30rem;
+    position: absolute;
+    font-family: Bob;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   @media screen and (max-width: 1024px) {
     header {
       width: 100%;
@@ -191,16 +215,18 @@ header {
   justify-content: space-between;
   margin-top: 265px;
   margin-left: 272px;
+  position: fixed;
 
 }
 
 .title-table{
   display: flex;
-  position: absolute;
-  margin-left: 34%;
+  justify-content: center;
+  font-size: 19px;
   font-family: Bob;
-
+  margin-top: -4rem;
 }
+
 .table-button{
   display: flex;
   position: relative;

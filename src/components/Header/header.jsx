@@ -21,7 +21,7 @@ function Header() {
     <>
       <header>
         <div className="logo-login">
-          <img className="logo-img" src={Logo} alt="Logo The Krusty Krab" />
+          <img className="logo-header" src={Logo} alt="Logo The Krusty Krab" />
           <img className="ocean-img" src={Ocean} alt="ocean-flower" />
           <img className="ocean-img-flo" src={OceanFlower} alt="ocean-flower" />
           <img className="ocean-img-flow" src={OceanFlo} alt="ocean-flower" />

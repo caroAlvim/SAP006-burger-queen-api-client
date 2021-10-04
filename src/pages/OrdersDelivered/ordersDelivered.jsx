@@ -20,8 +20,9 @@ font-size: 20px;
 margin-top: 18rem;
 
 
-@media (min-width: 1440px) {
-  padding: 2rem;
+@media (min-width: 1026px) {
+  padding: 1rem;
+  margin-top: 13rem;
 }
 `;
 

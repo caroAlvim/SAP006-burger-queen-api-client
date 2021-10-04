@@ -1,3 +1,7 @@
+.logo-header {
+    width: 8rem;
+}
+
 .nav-orders {
     display: flex;
     justify-content: center;
@@ -47,9 +51,12 @@
 
 
 @media (min-width: 1026px){
+    .nav-orders {
+       padding: 1rem;
+    }
     .nav-btn{
         padding: 0.8rem;
-        margin-top: 140px;
+        margin-top: 20px;
     }
 
 }

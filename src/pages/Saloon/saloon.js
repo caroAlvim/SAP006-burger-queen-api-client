@@ -21,9 +21,8 @@ function Saloon() {
     <div className="container">
       <Header />
       <main>
-        <p className="title-table">Escolha a mesa para realizar o pedido</p>
-
         <div className="table">
+          <p className="title-table">Escolha a mesa para realizar o pedido</p>
           {mesas.map((mesa) => (
             <Mesa
               mesa={mesa}
