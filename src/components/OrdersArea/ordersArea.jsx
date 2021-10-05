@@ -10,20 +10,35 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 font-family: Bob;
-height: 90vh
+margin-top: -6rem;
 
 @media (min-width: 1440px) {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
 }
+
+@media (min-width: 1660px) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 `;
 
-function OrdersArea({ children }) {
+const Header = styled.div`
+font-family: Bob;
+font-size: 26px;
+display: flex;
+justify-content: center;
+`;
+
+function OrdersArea({ msg, children }) {
   return (
-    <Section>
-      {children}
-    </Section>
+    <>
+      <Header> {msg} </Header>
+      <Section>
+        {children}
+      </Section>
+    </>
   );
 }
 

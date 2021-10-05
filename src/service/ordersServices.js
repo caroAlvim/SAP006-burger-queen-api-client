@@ -89,12 +89,30 @@ export const changeStatusSallon = (id, status) => {
     case 'ready':
       return changeStatusAPI(id, 'delivered');
 
-    case 'deliverd':
-      return changeStatusAPI(id, 'finish');
+    case 'delivered':
+      return changeStatusAPI(id, 'ready');
 
     default:
-      return changeStatusAPI(id, 'deliverd');
+      return changeStatusAPI(id, 'delivered');
   }
 };
 
-export const removeItem = (remove) => (remove.item);
+const requestDeleteOrder = (id) => {
+  const optionsApi = {
+    method: 'DELETE',
+    headers: {
+      Authorization: `${token}`,
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST',
+    },
+    body: JSON.stringify({ id }),
+  };
+  return optionsApi;
+};
+
+export const deleteOrder = (id) => (
+  fetch(`${apiRequestOrders}/${id}`, requestDeleteOrder(id))
+    .then((response) => response.json())
+);

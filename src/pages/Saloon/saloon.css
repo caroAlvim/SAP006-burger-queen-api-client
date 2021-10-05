@@ -33,7 +33,6 @@ header {
 
 }
 
-
 .table-button{
     display: flex;
     position: relative;
@@ -56,7 +55,56 @@ header {
     height: 96px;
     border-radius: 50%;
     margin-top: 12%;
-    margin-left: 20px;
+}
+
+.little-circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #7a212d7a;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 25px;
+}
+
+.button-mesa {
+  border: none;
+  background-color: none;
+  background-color: unset;
+  font-family: Bob;
+  font-size: 18px;
+}
+
+.logout-div{
+  display: flex;
+  align-items: flex-end;
+  height: 48rem;
+}
+
+.logout-img{
+  width: 2.5rem;
+}
+
+.logout-btn {
+  padding: 2rem;
+  border: none;
+  background-color: unset;
+  transition: .2s;
+}
+
+.logout-btn:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.net-logout {
+  color: #00000063;
+  font-family: Bob;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: center;
 }
   
   .bubble-1 {
@@ -158,6 +206,30 @@ header {
     }
   }
 
+  .table{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    justify-content: space-between;
+    position: fixed;
+    margin: 11rem auto 0 auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1rem;
+  }
+  
+  .title-table{
+    display: flex;
+    padding: 2rem;
+    width: 30rem;
+    position: absolute;
+    font-family: Bob;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   @media screen and (max-width: 1024px) {
     header {
       width: 100%;
@@ -174,10 +246,8 @@ header {
 }
 .logo-img{
   width: 10rem;
-  margin-left: 80%;
-  margin-top: -17px;
-
 }
+
 .all-table{
   display: flex;
   justify-content: space-between;
@@ -192,17 +262,18 @@ header {
   height: 400px;
   justify-content: space-between;
   margin-top: 265px;
-  margin-left: 272px;
+  position: fixed;
 
 }
 
 .title-table{
   display: flex;
-  position: absolute;
-  margin-left: 34%;
+  justify-content: center;
+  font-size: 19px;
   font-family: Bob;
-
+  margin-top: -4rem;
 }
+
 .table-button{
   display: flex;
   position: relative;
@@ -233,14 +304,21 @@ header {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background-color: #74827B;
+  background-color: #7a212d7a;
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  margin-top: 4%;
   margin-left: 25px;
 
 }
+.button-mesa{
+  border: none;
+  background-color: none;
+  background-color: unset;
+  font-family: Bob;
+  font-size: 18px;
+}
+
 /* .nav-pedidos{
   display: flex;
   flex-direction: row;
