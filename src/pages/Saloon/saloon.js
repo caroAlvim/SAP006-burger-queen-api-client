@@ -1,7 +1,10 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 // import '../Table/table.css';
 import Mesa from '../../components/Table/mesa';
 import Header from '../../components/Header/header';
+import Button from '../../components/Button/button';
+import logout from '../../img/Logout.png';
 import './saloon.css';
 
 // import Mesa from '../../components/mesa';
@@ -9,6 +12,13 @@ import './saloon.css';
 // import Logo from '../../img/logo-img.png';
 
 function Saloon() {
+  const historylogOut = useHistory();
+
+  const logOut = () => {
+    localStorage.clear();
+    historylogOut.push('/');
+  };
+
   const mesasTotal = 6;
   const mesas = [];
 
@@ -18,9 +28,9 @@ function Saloon() {
   }
 
   return (
-    <div className="container">
+    <main className="container">
       <Header />
-      <main>
+      <div>
         <div className="table">
           <p className="title-table">Escolha a mesa para realizar o pedido</p>
           {mesas.map((mesa) => (
@@ -28,11 +38,16 @@ function Saloon() {
               mesa={mesa}
             />
           ))}
-
         </div>
-      </main>
+      </div>
+      <div className="logout-div">
+        <Button buttonClass="logout-btn" buttonOnClick={logOut}>
+          <img className="logout-img" src={logout} alt="Sair" />
+          {/* <p className="net-logout">Sair</p> */}
+        </Button>
+      </div>
 
-    </div>
+    </main>
   );
 }
 

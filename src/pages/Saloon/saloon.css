@@ -33,7 +33,6 @@ header {
 
 }
 
-
 .table-button{
     display: flex;
     position: relative;
@@ -56,7 +55,56 @@ header {
     height: 96px;
     border-radius: 50%;
     margin-top: 12%;
-    margin-left: 20px;
+}
+
+.little-circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #7a212d7a;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  margin-left: 25px;
+}
+
+.button-mesa {
+  border: none;
+  background-color: none;
+  background-color: unset;
+  font-family: Bob;
+  font-size: 18px;
+}
+
+.logout-div{
+  display: flex;
+  align-items: flex-end;
+  height: 48rem;
+}
+
+.logout-img{
+  width: 2.5rem;
+}
+
+.logout-btn {
+  padding: 2rem;
+  border: none;
+  background-color: unset;
+  transition: .2s;
+}
+
+.logout-btn:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.net-logout {
+  color: #00000063;
+  font-family: Bob;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: center;
 }
   
   .bubble-1 {
@@ -214,7 +262,6 @@ header {
   height: 400px;
   justify-content: space-between;
   margin-top: 265px;
-  margin-left: 272px;
   position: fixed;
 
 }
@@ -257,14 +304,21 @@ header {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background-color: #74827B;
+  background-color: #7a212d7a;
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  margin-top: 4%;
   margin-left: 25px;
 
 }
+.button-mesa{
+  border: none;
+  background-color: none;
+  background-color: unset;
+  font-family: Bob;
+  font-size: 18px;
+}
+
 /* .nav-pedidos{
   display: flex;
   flex-direction: row;

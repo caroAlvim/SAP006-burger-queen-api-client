@@ -1,6 +1,21 @@
 .logo-header {
     width: 8rem;
 }
+.back-saloon{
+    padding: 0.6rem;
+    font-size: 14px;
+    font-family: Bob;
+    border-radius: 0.3rem;
+    background-color: #03E5B7;
+    margin-bottom: -2rem;
+    width: 6rem;
+    border: none;
+    transition: .2s;
+}
+.back-saloon:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
 
 .nav-orders {
     display: flex;
