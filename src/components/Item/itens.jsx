@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Button from '../Button/button';
+import './itens.css';
 
 function Item({
   divOnClick,

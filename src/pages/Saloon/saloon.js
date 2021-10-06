@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import React from 'react';
 // import '../Table/table.css';
 import Mesa from '../../components/Table/mesa';
@@ -11,30 +12,53 @@ import './saloon.css';
 function Saloon() {
   const mesasTotal = 6;
   const mesas = [];
-
+  const role = localStorage.getItem('role');
+  console.log(role);
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < mesasTotal; i++) {
     mesas.push(`${[i + 1]}`);
   }
+  
+return (
+  (role !== 'cozinha' ? (
+     
 
-  return (
-    <div className="container">
-      <Header />
-      <main>
-        <p className="title-table">Escolha a mesa para realizar o pedido</p>
+<div className="container">
+<Header />
+<main>
+  <p className="title-table">Escolha a mesa para realizar o pedido</p>
 
-        <div className="table">
-          {mesas.map((mesa) => (
-            <Mesa
-              mesa={mesa}
-            />
-          ))}
+  <div className="table">
+    {mesas.map((mesa) => (
+      <Mesa
+        mesa={mesa}
+      />
+    ))}
 
-        </div>
-      </main>
+  </div>
+</main>
 
-    </div>
+</div>
+  
+    ) : (
+     
+
+<div className="container">
+<Header />
+<main>
+  <p className="title-table">VOCE NAO PERTENCE A ESSE LUGAR</p>
+
+</main>
+
+</div>
+  
+    )
+    )
+    
   );
+
+ 
 }
+
 
 export default Saloon;
