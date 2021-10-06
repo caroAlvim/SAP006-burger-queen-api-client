@@ -25,9 +25,9 @@ Para visualizar, acesse [aqui](krusty-krab-restaurant.herokuapp.com/)
 
 - [1. Proposta do projeto](#1-proposta-do-projeto)
 - [2. Tema escolhido](#2-tema-escolhido)
-- [3. Histórias de usuário](#3-historias-de-usuario)
-- [4. Protótipo](#4-prototipo)
-- [5. A aplicação](#5-a-aplicacao)
+- [3. Histórias de usuário](#3-histórias-de-usuário)
+- [4. Protótipo](#4-protótipo)
+- [5. A aplicação](#5-a-aplicação)
 - [6. tecnologias utilizadas](#6-tecnologias-utilizadas)
 
 ---
