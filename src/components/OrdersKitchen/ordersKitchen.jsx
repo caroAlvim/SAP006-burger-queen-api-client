@@ -19,7 +19,7 @@ function OrdersKitchen({
         </div>
         <aside className="orders-time">
           <p>Pedido feito às {createdAt} </p>
-          <p>Finalizado às {updatedAt} </p>
+          <p>Atualizado às {updatedAt} </p>
         </aside>
         <div className="list-orders">
           {children}

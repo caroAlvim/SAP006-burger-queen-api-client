@@ -2,10 +2,10 @@
 /* eslint-disable no-confusing-arrow */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { authUser } from './auth';
+import { authUserKitchen } from './auth';
 
-const PrivateRoute = (props) => authUser()
+const PrivateRouteKitchen = (props) => authUserKitchen()
   ? <Route {...props} />
   : <Redirect to="/" />;
 
-export default PrivateRoute;
+export default PrivateRouteKitchen;

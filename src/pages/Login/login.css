@@ -15,6 +15,10 @@
 
 .logo-login {
     margin-top: 0rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .logo-img-login{

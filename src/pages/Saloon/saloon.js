@@ -1,8 +1,11 @@
 /* eslint-disable*/
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 // import '../Table/table.css';
 import Mesa from '../../components/Table/mesa';
 import Header from '../../components/Header/header';
+import Button from '../../components/Button/button';
+import logout from '../../img/Logout.png';
 import './saloon.css';
 
 // import Mesa from '../../components/mesa';
@@ -10,6 +13,13 @@ import './saloon.css';
 // import Logo from '../../img/logo-img.png';
 
 function Saloon() {
+  const historylogOut = useHistory();
+
+  const logOut = () => {
+    localStorage.clear();
+    historylogOut.push('/');
+  };
+
   const mesasTotal = 6;
   const mesas = [];
   const role = localStorage.getItem('role');
@@ -46,7 +56,7 @@ return (
 <div className="container">
 <Header />
 <main>
-  <p className="title-table">VOCE NAO PERTENCE A ESSE LUGAR</p>
+  <p className="title-table">Você não pertence a esse lugar</p>
 
 </main>
 

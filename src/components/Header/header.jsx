@@ -1,25 +1,38 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Logo from '../../img/logo-img.png';
+import Ocean from '../../img/3.png';
+import OceanFlower from '../../img/2.png';
+import OceanFlo from '../../img/1.png';
 import Button from '../Button/button';
 import './header.css';
 
 function Header() {
-  const ordersHistory = useHistory();
+  const history = useHistory();
 
   const ordersDone = () => {
-    ordersHistory.push('/orders-done');
+    history.push('/orders-done');
   };
   const ordersDelivered = () => {
-    ordersHistory.push('/orders-delivered');
+    history.push('/orders-delivered');
+  };
+  const goSaloon = () => {
+    history.push('/saloon');
   };
 
   return (
     <>
       <header>
-
         <div className="logo-login">
-          <img className="logo-img" src={Logo} alt="Logo The Krusty Krab" />
+          <img className="logo-header" src={Logo} alt="Logo The Krusty Krab" />
+          <img className="ocean-img" src={Ocean} alt="ocean-flower" />
+          <img className="ocean-img-flo" src={OceanFlower} alt="ocean-flower" />
+          <img className="ocean-img-flow" src={OceanFlo} alt="ocean-flower" />
+          <Button
+            buttonOnClick={goSaloon}
+            buttonClass="back-saloon"
+          > Orders Here
+          </Button>
         </div>
         <div className="bubble-1 bubble-container anim bubble-animation-x">
           <div className="bubble bubble-animation-y" />
