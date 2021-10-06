@@ -15,18 +15,19 @@ Para visualizar, acesse [aqui](krusty-krab-restaurant.herokuapp.com/)
 > |  📨  |     saloon@mail.com     |    kitchen@mail.com     |
 > |  🔐  |         1234567         |         1234567         |
 
-</div>
 
 ![Krusty-krab](./src/img/the-krusty-krab.gif)
+
+</div>
 
 
 ## Índice
 
 - [1. Proposta do projeto](#1-proposta-do-projeto)
 - [2. Tema escolhido](#2-tema-escolhido)
-- [3. Histórias de usuário](#3-historias-de-usuario)
-- [4. Protótipo](#4-prototipo)
-- [5. A aplicação](#5-a-aplicacao)
+- [3. Histórias de usuário](#3-histórias-de-usuário)
+- [4. Protótipo](#4-protótipo)
+- [5. A aplicação](#5-a-aplicação)
 - [6. tecnologias utilizadas](#6-tecnologias-utilizadas)
 
 ---
@@ -93,9 +94,9 @@ Krusty Krab, ou Siri Cascudo, é um restaurante fast-food presente no desenho an
 
 ## 4. Protótipo
 
-paleta de cores
+Paleta de cores
 
-![kitchen-inspired](./src/img/kitchen-krusty-krab.jpeg)
+<img width="240" alt="paleta-login" src="./src/img/kitchen-Krusty-Krab.jpeg">
 
 
 ## 5. A aplicação
@@ -103,10 +104,11 @@ paleta de cores
 Desenvolvido para Tablet
 
 ![Krusty-krab-login](./src/img/login.png)
-![Krusty-krab-saloon](https://github.com/caroAlvim/SAP006-burguer-queen-api-client/blob/main/src/img/saloon.png)
-![Krusty-krab-orders](https://github.com/caroAlvim/SAP006-burguer-queen-api-client/blob/main/src/img/orders.png)
-![Krusty-krab-kitchen](https://github.com/caroAlvim/SAP006-burguer-queen-api-client/blob/main/src/img/kitchen.png)
-![Krusty-krab-excluidos](https://github.com/caroAlvim/SAP006-burguer-queen-api-client/blob/main/src/img/excluidos.png)
+![Krusty-krab-saloon](./src/img/saloon.png)
+![Krusty-krab-orders](./src/img/orders.png)
+![Krusty-krab-excluidos](.n/src/img/excluidos.png)
+![Krusty-krab-sem-pedidos](./src/img/no-orders.png)
+![Krusty-krab-kitchen](./src/img/kitchen.png)
 
 ## 6. Tecnologias utilizadas
 

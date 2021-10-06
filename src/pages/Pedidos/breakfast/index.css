@@ -32,7 +32,9 @@
 .finish-menu h1 {
   font-family: Bob;
   font-size: 20px;
-  margin-left: 30%;
+  margin-left: 25%;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
 
 .nome-cliente {
@@ -42,11 +44,11 @@
 }
 .cash-register {
   display: flex;
-  position: absolute;
-  margin-top: 30%;
+  /* position: absolute; */
+  /* margin-top: 30%;
   margin-left: 40px;
   width: 100px;
-  height: 100px;
+  height: 100px; */
 }
 .breakfast-menu {
   display: flex;
@@ -89,9 +91,10 @@
 
 .button-finish {
   display: flex;
-  margin-left: 280px;
-  margin-top: 70%;
-  width: 100px;
+  justify-content: center;
+  /* margin-left: 280px;
+  margin-top: 70%; */
+  width: 7rem;
   height: 30px;
   cursor: pointer;
   background-color: var(--bg--button--color);
@@ -182,4 +185,20 @@
     font-size: 11px;
     font-weight: 900;
     margin-left: 10px;
+}
+
+.resume-orders-section{
+  padding: 1rem;
+}
+
+.payment-order {
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.top-resume {
+  padding: 1rem;
 }

@@ -10,6 +10,7 @@
     margin-bottom: -2rem;
     width: 6rem;
     border: none;
+    box-shadow: 5px 5px 10px rgba(31, 29, 29, 0.185);
     transition: .2s;
 }
 .back-saloon:hover{
@@ -24,6 +25,7 @@
     padding: 0.5rem;
     background-color: #F9F7F4; 
     height: 5rem;
+    box-shadow: 5px 5px 10px rgba(31, 29, 29, 0.185);
 }
 
 .nav-btn { 

@@ -1,5 +1,4 @@
-/*eslint-disable */
-
+/* eslint-disable */
 import './index.css';
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
@@ -12,7 +11,7 @@ import Frango from '../../../img/frango2.png';
 import Veg from '../../../img/veg.png';
 import Queijo from '../../../img/ovo.png';
 import Ovo from '../../../img/queijo.png';
-import Trash from '../../../img/trash.png';
+// import Trash from '../../../img/trash.png';
 
 function Pedidos() {
   const { mesa } = useParams();
@@ -46,10 +45,6 @@ function Pedidos() {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
 
-  useEffect(() => {
-    getAllProducts();
-  }, []);
-
   const getAllProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
       headers: {
@@ -71,9 +66,12 @@ function Pedidos() {
         setMenuAlmoco(burguerAndAll);
         const allproducts = json;
         setListaCompletaDeProdutos(allproducts);
-
       });
   };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   return (
     <main className="all-container">
@@ -144,7 +142,6 @@ function Pedidos() {
               >Café da Manhã
               </Button>
               <Button
-
                 buttonClass="menu-button"
                 buttonOnClick={() => {
                   setMenus(false);
@@ -158,7 +155,7 @@ function Pedidos() {
                 {menuAlmoco.map((item, index) => (
                   <li key={index} className="container-food">
                     <img className="img-food" src={item.image} />
-                    <label className="label-all-day-food" >{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
+                    <label className="label-all-day-food">{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
                     <input
                       className="add-button"
                       value="Add"
@@ -201,26 +198,28 @@ function Pedidos() {
 
       </div>
       <div className="finish-menu">
+        <div className="top-resume">
+          <h1>Resumo do Pedido</h1>
+          <p> Mesa {mesa}</p>
+          <input
+            className="nome-cliente"
+            type="text"
+            placeholder="Digite o nome do cliente"
+            onChange={(event) => setFazerPedido({ ...fazerPedido, client: event.target.value })}
+          />
+        </div>
 
-        <h1>Resumo do Pedido</h1>
-        <p> Mesa {mesa}</p>
-        <input
-          className="nome-cliente"
-          type="text"
-          placeholder="Digite o nome do cliente"
-          onChange={(event) => setFazerPedido({ ...fazerPedido, client: event.target.value })}
-        />
-        <section>
-          <label className="item">Item</label>
+        <section className="resume-orders-section">
+          <label className="item"> Item </label>
           {resumopedido.map((item, index) => (
             <ui className="lista-resumo-pedido">
               <li className="list" key={index}>
                 <div className="pedido-name">
                   {typeof item.name === 'string' ? item.name : item.name.map((item) => (
                     <>
-                      <label className="title-pedido">{item.name}</label>
-                      <label className="title-pedido">{item.flavor}</label>
-                      <label className="title-pedido">{item.complement}</label>
+                      <label className="title-pedido"> { item.name } </label>
+                      <label className="title-pedido"> { item.flavor } </label>
+                      <label className="title-pedido"> { item.complement } </label>
 
                     </>
                   ))}
@@ -258,7 +257,7 @@ function Pedidos() {
                     }}
                   />
                   <input
-                   value = "Excluir"
+                    value="Excluir"
                     className="button-excluir-item"
                     id="excluir-item"
                     type="button"
@@ -266,11 +265,8 @@ function Pedidos() {
                       resumopedido.splice(index, 1);
                       setResumoPedido([...resumopedido]);
                     }}
-                  
 
-                
                   />
-
 
                 </div>
               </li>
@@ -278,62 +274,64 @@ function Pedidos() {
           ))}
         </section>
 
-        <div className="cash-register">
-          <p className="total-pedido">TOTAL:{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(somaFinal(resumopedido))}</p>
-        </div>
-        <div>
-          <input
-            className="button-finish"
-            type="button"
-            value="Finalizar Pedido"
-            onClick={() => {
-              if (fazerPedido.client !== '') {
-                const products = resumopedido.map((item) => ({ id: item.id, qtd: item.qtd }));
-                fazerPedido.products = products;
-                const clientNameInput = document.querySelector('.nome-cliente').value;
+        <section className="payment-order">
+          <div className="cash-register">
+            <p className="total-pedido">TOTAL:{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(somaFinal(resumopedido))}</p>
+          </div>
+          <div>
+            <input
+              className="button-finish"
+              type="button"
+              value="Finalizar Pedido"
+              onClick={() => {
+                if (fazerPedido.client !== '') {
+                  const products = resumopedido.map((item) => ({ id: item.id, qtd: item.qtd }));
+                  fazerPedido.products = products;
+                  const clientNameInput = document.querySelector('.nome-cliente').value;
 
-                const requestOptions = {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    accept: 'application/json',
-                    Authorization: `${token}`,
-                  },
-                  body: JSON.stringify({
-                    client: clientNameInput,
-                    table: mesa,
-                    products:
+                  const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      accept: 'application/json',
+                      Authorization: `${token}`,
+                    },
+                    body: JSON.stringify({
+                      client: clientNameInput,
+                      table: mesa,
+                      products:
                   resumopedido.map((item) => (
                     {
                       id: Number(item.id),
                       qtd: Number(item.qtd),
                     }
                   )),
-                  }),
-                };
+                    }),
+                  };
 
-                fetch('https://lab-api-bq.herokuapp.com/orders', requestOptions)
-                  .then((response) => response.json())
-                  .then((data) => {
-                    if (data.id !== undefined) {
-                      setErroMessage('Pedido enviado com sucesso');
-                      setShowError(true);
-                      setFazerPedido({ client: '', table: mesa, products: [] });
-                      console.log('foi');
-                    } else {
-                      setShowError(true);
-                      setErroMessage('`${json.message}`');
-                      console.log('oh noo');
-                    }
-                  });
-              } else {
-                setShowError(true);
-                setErroMessage('Nome do Cliente nao está');
-              }
-            }}
-          />
+                  fetch('https://lab-api-bq.herokuapp.com/orders', requestOptions)
+                    .then((response) => response.json())
+                    .then((data) => {
+                      if (data.id !== undefined) {
+                        setErroMessage('Pedido enviado com sucesso');
+                        setShowError(true);
+                        setFazerPedido({ client: '', table: mesa, products: [] });
+                        console.log('foi');
+                      } else {
+                        setShowError(true);
+                        setErroMessage('`${json.message}`');
+                        console.log('oh noo');
+                      }
+                    });
+                } else {
+                  setShowError(true);
+                  setErroMessage('Nome do Cliente nao está');
+                }
+              }}
+            />
+          </div>
+        </section>
 
-        </div>
       </div>
 
     </main>
