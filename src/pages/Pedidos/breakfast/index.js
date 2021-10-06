@@ -1,4 +1,5 @@
 /*eslint-disable */
+
 import './index.css';
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
@@ -6,13 +7,14 @@ import Header from '../../../components/Header/header';
 import Item from '../../../components/Item/itens';
 import Button from '../../../components/Button/button';
 import Panel from '../../../components/Menu/menu';
-
+import Carne from '../../../img/carne.png';
+import Frango from '../../../img/frango2.png';
+import Veg from '../../../img/veg.png';
+import Queijo from '../../../img/ovo.png';
+import Ovo from '../../../img/queijo.png';
+import Trash from '../../../img/trash.png';
 
 function Pedidos() {
-  useEffect(() => {
-    getAllProducts();
-  }, []);
-
   const { mesa } = useParams();
 
   const history = useHistory();
@@ -34,14 +36,19 @@ function Pedidos() {
   const [fazerPedido, setFazerPedido] = useState({ client: '', table: mesa, products: [] });
   const [erroMessage, setErroMessage] = useState('');
   const [showError, setShowError] = useState(false);
-  const hamburguers = [{ name: 'carne', label: 'carne' }, { name: 'frango', label:'frango'}, { name: 'vegetariano', label: 'vegetariano' }];
-  const adicionais = [{ name: 'ovo' }, { name: 'queijo' }];
+  const hamburguers = [{ name: 'carne', label: 'carne', img: Carne }, { name: 'frango', label: 'frango', img: Frango }, { name: 'vegetariano', label: 'vegetariano', img: Veg }];
+  const adicionais = [{ name: 'ovo', img: Ovo }, { name: 'queijo', img: Queijo }];
   const [openExtrasBurgerSimples, setOpenExtrasBurgerSimples] = useState(false);
   const [openExtrasBurgerDuplo, setOpenExtrasBurgerDuplo] = useState(false);
   const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
   const [extrasBurgerDuplo, setExtrasBurgerDuplo] = useState('');
   const [listaCompletaDeProdutos, setListaCompletaDeProdutos] = useState('');
   const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   const getAllProducts = () => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -65,11 +72,6 @@ function Pedidos() {
         const allproducts = json;
         setListaCompletaDeProdutos(allproducts);
 
-        // console.log(allDaySlice)
-
-        // console.log(AllDayBurger)
-
-        console.log(burguerAndAll);
       });
   };
 
@@ -84,16 +86,12 @@ function Pedidos() {
               <Button
                 buttonClass="menu-button"
                 buttonOnClick={() => {
-                  alert('asdasd');
-                  setMenus(true);
                 }}
               >Café da Manhã
               </Button>
               <Button
-
                 buttonClass="menu-button"
                 buttonOnClick={() => {
-                  alert('aaaaaaaaaaaaa');
                   setMenus(false);
                 }}
               >All Day
@@ -106,7 +104,6 @@ function Pedidos() {
                   divClassName="container-food"
                   divKey={Math.random()}
                   itemName={item.name}
-                  divId={item.id}
                   ImgSrc={item.image}
                   itemPrice={item.price}
                   qnt={item.qnt}
@@ -160,12 +157,11 @@ function Pedidos() {
               <ul className="lista-menu-dois">
                 {menuAlmoco.map((item, index) => (
                   <li key={index} className="container-food">
-                    <img className="img-food" src={item.image} ></img>
-                    <h1>ADD</h1>
-                    <label>{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
+                    <img className="img-food" src={item.image} />
+                    <label className="label-all-day-food" >{`${item.name} ${Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.price)}`}</label>
                     <input
                       className="add-button"
-                      inputPlaceholder="oi"
+                      value="Add"
                       id={item.name}
                       ImgSrc={item.image}
                       type="button"
@@ -188,16 +184,15 @@ function Pedidos() {
                           });
                         }
                       }}
-                      
+
                     />
-                   
+
                     {openExtrasBurgerSimples === true && item.name === 'Hambúrguer simples' && <section className="menu-extras">{extrasBurgerSimples}</section>}
                     {openExtrasBurgerDuplo === true && item.name === 'Hambúrguer duplo' && <section className="menu-extras">{extrasBurgerDuplo}</section>}
 
                   </li>
                 ))}
               </ul>
-            
 
             </div>
           </Panel>
@@ -263,14 +258,19 @@ function Pedidos() {
                     }}
                   />
                   <input
-            className="button-excluir-item"
-            id="excluir-item"
-            type="button"
-            onClick={() => {
-            resumopedido.splice(index, 1);
-               setResumoPedido([...resumopedido]);
-                                      }}
-                                  />
+                   value = "Excluir"
+                    className="button-excluir-item"
+                    id="excluir-item"
+                    type="button"
+                    onClick={() => {
+                      resumopedido.splice(index, 1);
+                      setResumoPedido([...resumopedido]);
+                    }}
+                  
+
+                
+                  />
+
 
                 </div>
               </li>
@@ -360,7 +360,8 @@ function Pedidos() {
                     }}
                   />
                   <label className="label-input-menu" htmlFor={tipoHamburguer.name}>
-                    
+                    <img className="img-button-extra" alt={tipoHamburguer.name} src={tipoHamburguer.img} />
+
                     {tipoHamburguer.label}
                   </label>
                 </>
@@ -396,8 +397,7 @@ function Pedidos() {
           className="button-ok-extras"
           type="button"
           value="OK"
-          onClick={(event) => {
-            alert('sdfsd')
+          onClick={() => {
             if (selectedBurger.flavor !== null) {
               listaCompletaDeProdutos.filter((produto) => {
                 if (produto.name === selectedBurger.name && produto.flavor === selectedBurger.flavor && produto.complement === selectedBurger.complement) {
