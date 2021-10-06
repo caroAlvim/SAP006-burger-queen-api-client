@@ -96,7 +96,7 @@ Krusty Krab, ou Siri Cascudo, é um restaurante fast-food presente no desenho an
 
 Paleta de cores
 
-<img width="160" alt="paleta-login" src="./src/img/kitchen-Krusty-Krab.jpeg">
+<img width="240" alt="paleta-login" src="./src/img/kitchen-Krusty-Krab.jpeg">
 
 
 ## 5. A aplicação

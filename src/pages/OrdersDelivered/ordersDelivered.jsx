@@ -79,10 +79,9 @@ function OrdersDeliverd() {
               <Button
                 buttonClass="btn-status"
                 buttonOnClick={() => deleteOrder(item.id)
-                  .then((response) => {
-                    const changedOrders = [...ordersDelivered];
-                    changedOrders[index].id = response.id;
-                    setOrdersDelivered(changedOrders);
+                  .then(() => {
+                    ordersDelivered.splice(index, 1);
+                    setOrdersDelivered([...ordersDelivered]);
                     setConfirmModal(item.id);
                   })}
               >
