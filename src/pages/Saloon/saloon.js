@@ -1,16 +1,10 @@
-/* eslint-disable*/
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-// import '../Table/table.css';
 import Mesa from '../../components/Table/mesa';
 import Header from '../../components/Header/header';
 import Button from '../../components/Button/button';
 import logout from '../../img/Logout.png';
 import './saloon.css';
-
-// import Mesa from '../../components/mesa';
-// import Header from '../../components/header';
-// import Logo from '../../img/logo-img.png';
 
 function Saloon() {
   const historylogOut = useHistory();
@@ -28,47 +22,47 @@ function Saloon() {
   for (let i = 0; i < mesasTotal; i++) {
     mesas.push(`${[i + 1]}`);
   }
-  
-return (
-  (role !== 'cozinha' ? (
-     
 
-<div className="container">
-<Header />
-<main>
-  <p className="title-table">Escolha a mesa para realizar o pedido</p>
+  return (
+    (role !== 'cozinha' ? (
 
-  <div className="table">
-    {mesas.map((mesa) => (
-      <Mesa
-        mesa={mesa}
-      />
-    ))}
+      <div className="container">
+        <Header />
+        <main>
+          <div className="table">
+            <p className="title-table">Escolha a mesa para realizar o pedido</p>
+            {mesas.map((mesa) => (
+              <Mesa
+                mesa={mesa}
+              />
+            ))}
 
-  </div>
-</main>
+          </div>
+          <div className="logout-div">
+            <Button buttonClass="logout-btn" buttonOnClick={logOut}>
+              <img className="logout-img" src={logout} alt="Sair" />
+              {/* <p className="net-logout">Sair</p> */}
+            </Button>
+          </div>
+        </main>
 
-</div>
-  
+      </div>
+
     ) : (
-     
 
-<div className="container">
-<Header />
-<main>
-  <p className="title-table">Você não pertence a esse lugar</p>
+      <div className="container">
+        <Header />
+        <main>
+          <p className="title-table">Você não pertence a esse lugar</p>
 
-</main>
+        </main>
 
-</div>
-  
+      </div>
+
     )
     )
-    
+
   );
-
- 
 }
-
 
 export default Saloon;

@@ -31,7 +31,7 @@ function Header() {
           <Button
             buttonOnClick={goSaloon}
             buttonClass="back-saloon"
-          > Orders Here
+          > Order Here
           </Button>
         </div>
         <div className="bubble-1 bubble-container anim bubble-animation-x">
