@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../../components/Header/header';
 import OrdersArea from '../../components/OrdersArea/ordersArea';
@@ -29,12 +28,6 @@ margin-top: 18rem;
 function OrdersDeliverd() {
   const [ordersDelivered, setOrdersDelivered] = useState([]);
   const [confirmModal, setConfirmModal] = useState(null);
-
-  // const history = useHistory();
-
-  // const ordersDeleted = () => {
-  //   history.push('/orders-delivered');
-  // };
 
   const filterOrdersDelivered = () => {
     requestAllOrders()
