@@ -11,12 +11,16 @@ import Frango from '../../../img/frango2.png';
 import Veg from '../../../img/veg.png';
 import Queijo from '../../../img/ovo.png';
 import Ovo from '../../../img/queijo.png';
+import ModalMsg from '../../../components/ModalMsg/modalMsg';
 // import Trash from '../../../img/trash.png';
 
 function Pedidos() {
   const { mesa } = useParams();
-
   const history = useHistory();
+
+  const goInit = () => {
+    history.push('/saloon');
+  };
 
   function somaFinal(array) {
     return array.reduce((total, item) => total + (item.qtd * item.price), 0);
@@ -42,6 +46,7 @@ function Pedidos() {
   const [extrasBurgerSimples, setExtrasBurgerSimples] = useState('');
   const [extrasBurgerDuplo, setExtrasBurgerDuplo] = useState('');
   const [listaCompletaDeProdutos, setListaCompletaDeProdutos] = useState('');
+  const [confirmModalOrder, setConfirmModalOrder] = useState(null);
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
 
@@ -316,7 +321,7 @@ function Pedidos() {
                         setErroMessage('Pedido enviado com sucesso');
                         setShowError(true);
                         setFazerPedido({ client: '', table: mesa, products: [] });
-                        console.log('foi');
+                        setConfirmModalOrder(data.id);
                       } else {
                         setShowError(true);
                         setErroMessage('`${json.message}`');
@@ -331,6 +336,17 @@ function Pedidos() {
             />
           </div>
         </section>
+        <ModalMsg
+          isOpen={Boolean(confirmModalOrder)}
+          msg="Pedido enviado com sucesso."
+        >
+        <Button
+          buttonClass="btn-status"
+          buttonOnClick={goInit}
+        >
+          Ok
+        </Button>
+      </ModalMsg>
 
       </div>
 

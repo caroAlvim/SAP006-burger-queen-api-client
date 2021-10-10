@@ -90,13 +90,19 @@ adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
 Krusty Krab, ou Siri Cascudo, é um restaurante fast-food presente no desenho animado do Bob Esponja. A hamburgueria é conhecida pelo seu famoso lanche, o Krabby Patty. Inspiradas no programa, desenvolvemos esta aplicação do restaurante baseada inteiramente no cartoon.
 
+<div align='center'>
+ 
+![Krusty-krab](./src/img/krabbypatty.gif)
+
+</div>
+
 ## 3. Histórias de usuário
 
 ## 4. Protótipo
 
 Paleta de cores
 
-<img width="240" alt="paleta-login" src="./src/img/kitchen-Krusty-Krab.jpeg">
+<img width="240" alt="paleta-cores" src="./src/img/bob-saloon.png"> <img width="240" alt="paleta-cores" src="./src/img/kitchen-Krusty-Krab.jpeg"> <img width="240" alt="paleta-cores" src="./src/img/bob-kitchen.png">
 
 
 ## 5. A aplicação
@@ -106,7 +112,7 @@ Desenvolvido para Tablet
 ![Krusty-krab-login](./src/img/login.png)
 ![Krusty-krab-saloon](./src/img/saloon.png)
 ![Krusty-krab-orders](./src/img/orders.png)
-![Krusty-krab-excluidos](.n/src/img/excluidos.png)
+![Krusty-krab-excluidos](./src/img/excluidos.png)
 ![Krusty-krab-sem-pedidos](./src/img/no-orders.png)
 ![Krusty-krab-kitchen](./src/img/kitchen.png)
 
