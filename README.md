@@ -205,7 +205,7 @@ Paleta de cores
 
 <div align='center'>
  
-![colors](./src/img/colors.png)
+![colors](./src/img/colors.jpeg)
 
 </div>
 
@@ -245,7 +245,7 @@ Desenvolvido para Tablet
 </div><br>
 
 
-## Volte Sempre
+## 
 <div align='center'>
 <h4> Volte sempre </h4><br>
 
