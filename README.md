@@ -249,6 +249,6 @@ Desenvolvido para Tablet
 <div align='center'>
 <h4> Volte sempre </h4><br>
 
-![Krusty-krab](./src/img/money.gif)
+![Krusty-krab](./src/img/bye.gif)
 
 </div>
