@@ -88,7 +88,8 @@ adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
 ## 2. Tema Escolhido
 
-Krusty Krab, ou Siri Cascudo, é um restaurante fast-food presente no desenho animado do Bob Esponja. A hamburgueria é conhecida pelo seu famoso lanche, o Krabby Patty. Inspiradas no programa, desenvolvemos esta aplicação do restaurante baseada inteiramente no cartoon.
+Krusty Krab, ou Siri Cascudo, é um fast-food presente no desenho animado Bob Esponja. O restaurante é conhecido pelo seu famoso hamburguer, o Krabby Patty, que é alvo de espionagem industrial do concorrente Plankton. Inspiradas pelo programa, desenvolvemos esta aplicação para o gerenciamento de uma hamburgueria baseada inteiramente no cartoon e para um cliente especial, Seu Siriguejo.
+
 
 <div align='center'>
  
@@ -98,9 +99,117 @@ Krusty Krab, ou Siri Cascudo, é um restaurante fast-food presente no desenho an
 
 ## 3. Histórias de usuário
 
+### Definição do produto
+
+O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou
+este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
+
+---
+
+#### [Historia de usuario 1] Garçom/Garçonete deve poder entrar no sistema, caso o admin já lhe tenha dado as credenciais
+
+Eu, como garçom/garçonete quero entrar no sistema de pedidos.
+
+##### Critérios de aceitação
+
+O que deve acontecer para satisfazer as necessidades do usuário?
+
+- Acessar uma tela de login.
+- Inserir email e senha.
+- Receber mensagens de erros compreensíveis, conforme o erro e as informações inseridas.
+- Entrar no sistema de pedidos caso as credenciais forem corretas.
+
+##### Definição de pronto
+
+O acordado abaixo deve acontecer para dizer que a história está terminada:
+
+- Você deve ter recebido _code review_ de pelo menos uma parceira.
+- Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+- Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+
+---
+
+#### [História de usuário 2] Garçom/Garçonete deve ser capaz de anotar o pedido do cliente
+
+Eu como garçom/garçonete quero poder anotar o pedido de um cliente para não
+depender da minha memória, saber quanto cobrar e poder enviar os pedidos para a
+cozinha para serem preparados em ordem.
+
+##### Critérios de aceitação
+
+O que deve acontecer para satisfazer as necessidades do usuário?
+
+- Anotar o nome do cliente.
+- Adicionar produtos aos pedidos.
+- Excluir produtos.
+- Ver resumo e o total da compra.
+- Enviar o pedido para a cozinha (guardar em algum banco de dados).
+- Funcionar bem em um _tablet_.
+
+##### Definição de pronto
+
+O acordado abaixo deve acontecer para dizer que a história está terminada:
+
+- Você deve ter recebido _code review_ de pelo menos uma parceira.
+- Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+- Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+
+---
+
+#### [História de usuário 3] Chefe de cozinha deve ver os pedidos
+
+Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder
+marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido
+está pronto para ser entregue ao cliente.
+
+##### Critérios de aceitação
+
+- Ver os pedidos ordenados à medida em que são feitos.
+- Marcar os pedidos que foram preparados e estão prontos para serem servidos.
+- Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado
+  como concluído.
+
+##### Definição de pronto
+
+- Você deve ter recebido _code review_ de pelo menos uma parceira.
+- Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+- Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+
+---
+
+#### [Historia de usuário 4] Garçom/Garçonete deve ver os pedidos prontos para servir
+
+Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los
+rapidamente aos clientes.
+
+##### Critérios de aceitação
+
+- Ver a lista de pedidos prontos para servir.
+- Marcar os pedidos que foram entregues.
+
+##### Definição de pronto
+
+- Você deve ter recebido _code review_ de pelo menos uma parceira.
+- Fez _testes_ unitários e, além disso, testou seu produto manualmente.
+- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
+- Você deu deploy de seu aplicativo e marcou sua versão (tag git).
+- Os dados devem ser mantidos intactos, mesmo depois que um pedid
+
 ## 4. Protótipo
 
 Paleta de cores
+
+
+<div align='center'>
+ 
+![colors](./src/img/colors.png)
+
+</div>
+
+#### Outras inspirações
 
 <img width="240" alt="paleta-cores" src="./src/img/bob-saloon.png"> <img width="240" alt="paleta-cores" src="./src/img/kitchen-Krusty-Krab.jpeg"> <img width="240" alt="paleta-cores" src="./src/img/bob-kitchen.png">
 
@@ -118,10 +227,28 @@ Desenvolvido para Tablet
 
 ## 6. Tecnologias utilizadas
 
-- React
-- Javascript
-- Styled Components
-- Jest
-- Node.js
-- Git e Github
-- Figma
+<div align="inline_block">
+  <a href="https://github.com/caroAlvim">
+</div>
+  
+<div style="display: inline_block"><br>
+  <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img  align="center" alt="Node" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+  <img align="center" alt="React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+  <img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+  <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+  <img align="center" alt="Figma" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
+  <img align="center" alt="vscode" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
+  <img align="center" alt="jest" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" />
+  <img align="center" alt="github" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+  <img align="center" alt="git" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+</div><br>
+
+
+## Volte Sempre
+<div align='center'>
+<h4> Volte sempre </h4><br>
+
+![Krusty-krab](./src/img/money.gif)
+
+</div>
