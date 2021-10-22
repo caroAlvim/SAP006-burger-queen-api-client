@@ -4,7 +4,7 @@ Krusty Krab - Burguer Queen é uma aplicação web criada para administrar pedid
 
 🍔 Desenvolvido por [Julli Mayane](https://github.com/jjullimayanne) e [Carolina Alvim](https://github.com/caroAlvim), utilizando React.
 
-Para visualizar, acesse [aqui](krusty-krab-restaurant.herokuapp.com/)
+Para visualizar, acesse [aqui](bit.ly/krusty-krab)
 
 <div align='center'>
  
