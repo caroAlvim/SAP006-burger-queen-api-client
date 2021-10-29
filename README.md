@@ -10,11 +10,13 @@ Para visualizar, acesse [aqui](https://krusty-krab-restaurant.herokuapp.com/)
  
   <h4> senhas de acesso:</h4>
 
-> |      |          Salão          |      Cozinha            |
-> |------|-------------------------|-------------------------|
-> |  📨  |     saloon@mail.com     |    kitchen@mail.com     |
-> |  🔐  |         1234567         |         1234567         |
+ |      |          Salão          |      Cozinha            |
+ |------|-------------------------|-------------------------|
+ |  📨  |     saloon@mail.com     |    kitchen@mail.com     |
+ |  🔐  |         1234567         |         1234567         |
 
+ 
+ <br>
 
 ![Krusty-krab](./src/img/the-krusty-krab.gif)
 
